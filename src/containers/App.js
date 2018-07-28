@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import baseStyles from './styles/base-styles'
+import baseStyles from '../styles/base-styles'
 
 class App extends Component {
   render() {
