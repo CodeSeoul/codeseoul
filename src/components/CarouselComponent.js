@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import React from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {CarouselItem, CarouselContainer} from '../styles/CarouselComponentStyle';
+import {CarouselItem, CarouselContainer, ItemUl, ItemLi} from '../styles/CarouselComponentStyle';
 
 const sliderSettings = {
     dots: true,
@@ -15,9 +15,17 @@ const sliderSettings = {
 const CarouselComponent = ({meetupArray}) => {
     const carouselItem = meetupArray.map((obj, i)=>{
        return (<CarouselItem key={i} background={obj.background}>
-                <h3>
-                {obj.title}
-                </h3>
+                <ItemUl>
+                    <ItemLi>
+                        Topic : {obj.title}
+                    </ItemLi>
+                    <ItemLi>
+                        Date : {obj.date}
+                    </ItemLi>
+                    <ItemLi>
+                        Host : {obj.host}
+                    </ItemLi>
+                </ItemUl>
               </CarouselItem>)
     });
 
