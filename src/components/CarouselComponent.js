@@ -12,7 +12,7 @@ const sliderSettings = {
     slidesToScroll: 1,
   };
 
-const CarouselComponent = ({meetupArray}) => {
+const Carousel = ({meetupArray}) => {
     const carouselItem = meetupArray.map((obj, i)=>{
        return (<CarouselItem key={i} background={obj.background}>
                 <ItemUl>
@@ -38,5 +38,5 @@ const CarouselComponent = ({meetupArray}) => {
     );
 }
 
-export {CarouselComponent};
+export {Carousel};
 
