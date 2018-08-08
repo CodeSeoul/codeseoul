@@ -1,7 +1,7 @@
 import React from 'react';
-import {Carousel} from '../components/CarouselComponent';
-import {Header} from '../components/HeaderComponent';
-import {Footer} from '../components/FooterComponent';
+import {HeaderComponent} from '../components/HeaderComponent';
+import {FooterComponent} from '../components/FooterComponent';
+import {ContentComponent} from '../components/ContentComponent';
 
 const placeholderData = [
   {  
@@ -30,9 +30,9 @@ const placeholderData = [
 
 const HomePage = () => (
   <div>
-    <Header />
-    <Carousel meetupArray={placeholderData} />
-    homepage
+    <HeaderComponent />
+    <ContentComponent meetupArray={placeholderData} />
+    <FooterComponent />
   </div>
 
 );
