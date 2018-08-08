@@ -1,5 +1,7 @@
 import React from 'react';
 import {Carousel} from '../components/CarouselComponent';
+import {Header} from '../components/HeaderComponent';
+import {Footer} from '../components/FooterComponent';
 
 const placeholderData = [
   {  
@@ -27,8 +29,10 @@ const placeholderData = [
 
 
 const HomePage = () => (
-  <div>homepage
+  <div>
+    <Header />
     <Carousel meetupArray={placeholderData} />
+    homepage
   </div>
 
 );
