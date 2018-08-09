@@ -4,13 +4,17 @@ import {Navbar, NavItem} from 'react-materialize';
 const items = ['','About', 'Meetups', 'Contact'];
 
 const headerStyle = {
-   background: '#3aafa9'
+    background: '#3aafa9'
+}
+
+const navItemStyle = {
+    
 }
 
 const HeaderComponent = () => {
     const navItems = items.map((item, i)=>{
         return (
-            <NavItem href={'/' + item.toLowerCase()} key={i}>
+            <NavItem style={navItemStyle} href={'/' + item.toLowerCase()} key={i}>
                 {item ? item: 'Home'}
             </NavItem>
         )
