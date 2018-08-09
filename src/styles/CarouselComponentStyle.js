@@ -8,7 +8,7 @@ const CarouselItem = styled.div`
 `
 
 const CarouselContainer = styled.div`
-    width:80%;
+    width:100%;
     height: auto;
 `
 
