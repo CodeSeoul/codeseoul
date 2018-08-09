@@ -2,7 +2,8 @@ import React from 'react';
 import {HeaderComponent} from '../components/HeaderComponent';
 import {FooterComponent} from '../components/FooterComponent';
 import {ContentComponent} from '../components/ContentComponent';
-
+import {ContentContainer} from '../styles/HomePageStyle';
+ 
 const placeholderData = [
   {  
       'title':'Meetup #1',
@@ -31,7 +32,9 @@ const placeholderData = [
 const HomePage = () => (
   <div>
     <HeaderComponent />
-    <ContentComponent meetupArray={placeholderData} />
+      <ContentContainer>
+        <ContentComponent meetupArray={placeholderData} />
+      </ContentContainer>
     <FooterComponent />
   </div>
 
