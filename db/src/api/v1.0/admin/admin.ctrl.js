@@ -46,6 +46,25 @@ exports.register = async (req, res) => {
     } catch (e) {
         console.log(e);
         res.status(500).json({error: e});
+    }
+}
+
+exports.login = async (req, res) => {
+    const { body } = req;
+    const { username, password } = body;
+    try{
+        const { user } = await Admin.authenticate()(username, password);
+        
+        if(user){
+            res.status(200).json({
+                user
+            });
+        } else{
+            res.status(401).json({});
+        }
+
+    } catch (e) {
+        console.log(e);
         res.status(500).json({error: e});
     }
 }
