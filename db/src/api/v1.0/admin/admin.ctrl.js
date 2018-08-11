@@ -11,7 +11,7 @@ exports.checkName = async (ctx, res) => {
     }
 
     try {
-        const account = await Admin.findByName(name);
+        const account = await Admin.findByUserName(name);
         res.send({
             exists: !!account
         });
@@ -23,21 +23,23 @@ exports.checkName = async (ctx, res) => {
 
 exports.register = async (req, res) => {
     const { body } = req;
-    const { name } = body;
-
+    const { username, password } = body;
     try{
-        const exists = await Admin.findByName(name);
+        const exists = await Admin.findByUserName(username);
         if(exists){
-            res.status(409).json({conflict:'name', name});
+            res.status(409).json({conflict:'username', username});
             return;
         }
 
-        const admin = await Admin.register({
-            name
-        });
+        let admin = new Admin({username});
+ 
+        admin = await Admin.register(
+            admin,
+            password
+        );
 
         res.status(201).json({
-            name,
+            username,
             _id: admin._id
         });
     } catch (e) {
