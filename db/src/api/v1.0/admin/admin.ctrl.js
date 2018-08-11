@@ -38,7 +38,7 @@ exports.register = async (req, res) => {
             admin,
             password
         );
-
+        
         res.status(201).json({
             username,
             _id: admin._id
@@ -57,10 +57,11 @@ exports.login = async (req, res) => {
         
         if(user){
             res.status(200).json({
+                success:true,
                 user
             });
         } else{
-            res.status(401).json({});
+            res.status(401).json({success:false});
         }
 
     } catch (e) {
