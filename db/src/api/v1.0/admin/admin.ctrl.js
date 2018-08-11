@@ -17,7 +17,8 @@ exports.checkName = async (ctx, res) => {
         });
         return;
     } catch (e) {
-        ctx.throw(e, 500);
+        console.log(e);
+        res.status(500, e).json(e);
     }
 };
 
@@ -43,6 +44,8 @@ exports.register = async (req, res) => {
             _id: admin._id
         });
     } catch (e) {
+        console.log(e);
+        res.status(500).json({error: e});
         res.status(500).json({error: e});
     }
 }
