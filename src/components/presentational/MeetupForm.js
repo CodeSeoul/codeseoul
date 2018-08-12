@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MeetupForm = props => {
-  const { onChangeHandler, event } = props;
+  const { onChangeHandler, createEvent, event } = props;
   const { name, description } = event;
   return (
     <div id="create-event-form">
@@ -22,7 +22,7 @@ const MeetupForm = props => {
           onChange={e => onChangeHandler(e)}
           value={description}
         />
-        <button>Create Event</button>
+        <button onClick={createEvent}>Create Event</button>
       </form>
     </div>
   );
