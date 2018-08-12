@@ -11,8 +11,27 @@ class MeetupFormContainer extends React.Component {
     }
   };
 
+  onChangeHandler = e => {
+    console.log(this.state.eventData.description);
+    let newValue = e.target.value;
+    let name = e.target.name;
+    console.log('name', name);
+    this.setState({
+      ...this.state,
+      eventData: {
+        ...this.state.eventData,
+        [name]: newValue
+      }
+    });
+  };
+
   render() {
-    return <MeetupForm />;
+    return (
+      <MeetupForm
+        onChangeHandler={this.onChangeHandler}
+        event={this.state.eventData}
+      />
+    );
   }
 }
 
