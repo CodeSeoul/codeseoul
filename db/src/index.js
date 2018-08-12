@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express')
 const app = express()
 const mdb = require('./models');
@@ -7,6 +6,10 @@ const passport = require('passport');
 const Admin = require('models/Admin');
 
 passport.use(Admin.createStrategy());
+
+let config = require('config'); //we load the db location from the JSON files
+
+const { PORT } = config;
 const port = PORT ? PORT : 4000;
 
 app.use(express.json());
