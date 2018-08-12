@@ -1,9 +1,11 @@
 import React from 'react';
 import {HeaderComponent} from '../components/HeaderComponent';
 import {FooterComponent} from '../components/FooterComponent';
-import {ContentComponent} from '../components/ContentComponent';
-import {ContentContainer} from '../styles/HomePageStyle';
- 
+import {Row, Col} from 'react-materialize';
+import {Carousel} from '../components/CarouselComponent'; 
+import {Calendar} from '../components/CalendarComponent';
+import { BodyContainer } from '../styles/HomePageStyle';
+
 const placeholderData = [
   {  
       'title':'Meetup #1',
@@ -28,13 +30,27 @@ const placeholderData = [
   },
 ];
 
+const componentContainer = {
+  textAlign: 'center',
+  background: '#888',
+  height: '181px',
+  margin: '10px 0px'
+};
 
 const HomePage = () => (
   <div>
     <HeaderComponent />
-      <ContentContainer>
-        <ContentComponent meetupArray={placeholderData} />
-      </ContentContainer>
+      <BodyContainer>
+        <Row>
+            <Col style={componentContainer} className={"s12 m12 l6"}> <Calendar /> </Col>
+            <Col style={{...componentContainer, background:'#fff'}} className={"s12 m12 l6"}> <Carousel meetupArray={placeholderData}/> </Col>
+            <Col style={componentContainer} className={"s12 m12 l6"}> Previous Meetups </Col>
+            <Col style={componentContainer} className={"s12 m12 l6"}> Resources </Col>
+            <Col style={componentContainer} className={"s12 m12 l6"}> FAQ </Col>
+            <Col style={componentContainer} className={"s12 m12 l6"}> Q&A </Col>
+        </Row>
+      </BodyContainer>
+
     <FooterComponent />
   </div>
 
