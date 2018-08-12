@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const {
-    MONGO_URI: mongoURI
-} = process.env
+const config = require('config');
+const { MONGO_URI } = config;
+const mongoURI = MONGO_URI ? MONGO_URI : 27017;
 
 const connect = () => {
     mongoose.connect(mongoURI, { useNewUrlParser: true });
