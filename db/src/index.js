@@ -26,9 +26,9 @@ router.use('/api', api);
 app.use(router);
 
 mdb.connect();
-app.listen(port, () => {
-    console.log(`server is running at port: ${port}`)
-}); app.listen(port, () => {
+
+if(process.env.NODE_ENV != 'test'){
+    app.listen(port, () => {
         console.log(`server is running at port: ${port}`)
     });
 }
