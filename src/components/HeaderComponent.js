@@ -17,7 +17,7 @@ const HeaderComponent = () => {
     })
 
   return (
-        <Navbar style={headerStyle} brand='Code Seoul' left>
+        <Navbar style={headerStyle} brand='Code Seoul' right options={{edge: 'right'}}>
             {navItems}
         </Navbar>
     )
