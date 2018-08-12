@@ -3,10 +3,10 @@ import {Footer} from 'react-materialize';
 
 const footerStyle = {
     position: 'absolute',
-   bottom:'0',
-   width:'100%',
-   height: 'auto',   /* Height of the footer */
-   background: '#3aafa9'
+    bottom:0,
+    width:'100%',
+    height: 'auto',   /* Height of the footer */
+    background: '#3aafa9'
 }
 
 const FooterComponent = () =>{
