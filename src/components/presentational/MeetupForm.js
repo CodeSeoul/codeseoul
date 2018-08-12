@@ -2,7 +2,7 @@ import React from 'react';
 
 const MeetupForm = props => {
   const { onChangeHandler, createEvent, event } = props;
-  const { name, description } = event;
+  const { name, description, directions } = event;
   return (
     <div id="create-event-form">
       <form>
@@ -21,6 +21,13 @@ const MeetupForm = props => {
           placeholder="Event Description"
           onChange={e => onChangeHandler(e)}
           value={description}
+        />
+        <input
+          name="directions"
+          type="text"
+          onChange={e => onChangeHandler(e)}
+          placeholder="Directions"
+          value={directions}
         />
         <button onClick={createEvent}>Create Event</button>
       </form>
