@@ -1,0 +1,5 @@
+{
+    "MONGO_URI":"mongodb://localhost:27017/testDB",
+    "PORT":"4000",
+    "HASH_SECRET_KEY":"testSecretKey"
+}
