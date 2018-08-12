@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js",
-    "start":"node src/index.js"
+    "dev": "cross-env NODE_PATH=src NODE_ENV=dev nodemon --watch src/ src/index.js",
+    "start": "node src/index.js",
   },
   "dependencies": {
+    "config": "^2.0.1",
     "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
