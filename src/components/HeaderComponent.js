@@ -7,14 +7,10 @@ const headerStyle = {
     background: '#3aafa9'
 }
 
-const navItemStyle = {
-    
-}
-
 const HeaderComponent = () => {
     const navItems = items.map((item, i)=>{
         return (
-            <NavItem style={navItemStyle} href={'/' + item.toLowerCase()} key={i}>
+            <NavItem href={'/' + item.toLowerCase()} key={i}>
                 {item ? item: 'Home'}
             </NavItem>
         )
