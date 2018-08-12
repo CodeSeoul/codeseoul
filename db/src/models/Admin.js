@@ -23,4 +23,4 @@ Admin.statics.drop = function () {
     return this.remove({}).exec();
 };
 
-module.exports = mongoose.model('Admin', Admin);
+module.exports = mongoose.models.Admin || mongoose.model('Admin', Admin);
