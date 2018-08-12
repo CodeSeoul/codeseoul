@@ -6,12 +6,6 @@ const CarouselItem = styled.div`
     padding: 50px 0px;
     background: ${props => props.background};
 `
-
-const CarouselContainer = styled.div`
-    width:100%;
-    height: auto;
-`
-
 const ItemUl = styled.ul`
     width:auto;
     height:auto;
@@ -23,4 +17,4 @@ const ItemLi = styled.li`
     padding: 5px;
 `
 
-export {CarouselItem, CarouselContainer, ItemUl, ItemLi};
+export {CarouselItem, ItemUl, ItemLi};
