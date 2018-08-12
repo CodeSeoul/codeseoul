@@ -2,14 +2,18 @@ import Slider from 'react-slick';
 import React from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {CarouselItem, CarouselContainer, ItemUl, ItemLi} from '../styles/CarouselComponentStyle';
+import {CarouselItem, ItemUl, ItemLi} from '../styles/CarouselComponentStyle';
 
 const sliderSettings = {
-    dots: true,
+    dots: false,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    pauseOnHover : true
   };
 
 const Carousel = ({meetupArray}) => {
@@ -30,11 +34,9 @@ const Carousel = ({meetupArray}) => {
     });
 
     return (
-        <CarouselContainer>
             <Slider {...sliderSettings}>
                 {carouselItem}
             </Slider>
-        </CarouselContainer>
     );
 }
 
