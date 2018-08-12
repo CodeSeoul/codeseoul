@@ -28,4 +28,9 @@ app.use(router);
 mdb.connect();
 app.listen(port, () => {
     console.log(`server is running at port: ${port}`)
-});
+}); app.listen(port, () => {
+        console.log(`server is running at port: ${port}`)
+    });
+}
+
+module.exports = app;
