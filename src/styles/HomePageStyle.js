@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-const ContentContainer = styled.div`
-    padding: 2vw;
+const BodyContainer = styled.div`
+    padding: 1vw 8vw;
 `
-export {ContentContainer};
+
+export {BodyContainer};
