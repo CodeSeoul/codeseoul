@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_PATH=src NODE_ENV=dev nodemon --watch src/ src/index.js",
     "start": "node src/index.js",
+    "test": "cross-env NODE_PATH=src NODE_ENV=test nodemon --watch test/ --exec \"mocha  --timeout 10000 || true\"",
+    "mocha":"cross-env NODE_PATH=src NODE_ENV=test mocha --watch test/ --timeout 10000"
   },
   "dependencies": {
     "config": "^2.0.1",
