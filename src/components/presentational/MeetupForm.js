@@ -29,6 +29,10 @@ const MeetupForm = props => {
           placeholder="Directions"
           value={directions}
         />
+        <select name="venueId" onChange={e => onChangeHandler(e)}>
+          <option value="25507426">WCoding</option>
+          <option value="24727562">Seoul Global Center</option>
+        </select>
         <button onClick={createEvent}>Create Event</button>
       </form>
     </div>

@@ -10,10 +10,10 @@ class MeetupFormContainer extends React.Component {
       duration: '',
       date: '',
       time: '',
-      directions: ''
+      directions: '',
+      venueId: ''
     }
   };
-
   onChangeHandler = e => {
     let newValue = e.target.value;
     let name = e.target.name;
@@ -29,10 +29,10 @@ class MeetupFormContainer extends React.Component {
 
   createEvent = e => {
     e.preventDefault();
-    const { name, description, directions } = this.state.eventData;
+    const { name, description, directions, venueId } = this.state.eventData;
     const APIkey = MY_KEY.meetupAPIKey;
     fetch(
-      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&how_to_find_us=${directions}`,
+      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&venue_id=${venueId}&how_to_find_us=${directions}`,
       {
         method: 'POST',
         headers: {
@@ -47,6 +47,7 @@ class MeetupFormContainer extends React.Component {
       .then(data => console.log(data));
   };
   render() {
+    console.log('this.this.state.eventData', this.state.eventData);
     return (
       <MeetupForm
         onChangeHandler={this.onChangeHandler}
