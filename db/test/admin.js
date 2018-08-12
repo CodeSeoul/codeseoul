@@ -1,0 +1,47 @@
+//During the test the env variable is set to test
+process.env.NODE_ENV = 'test';
+let users
+
+let mongoose = require("mongoose");
+let Admin = require('models/Admin');
+
+const config = require('config');
+
+//Require the dev-dependencies
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+// let app = require('index');
+// var server;
+let should = chai.should();
+let expect = chai.expect;
+chai.use(chaiHttp);
+
+describe('Admins', () => {
+    before((done) => {
+        // server = app.start(done);
+        // console.log('remove all admin');
+        Admin.drop();
+        done();
+    })
+    beforeEach((done) => { //Before each test
+        done();
+    });
+
+    after((done)=>{
+        // server.close();
+        done();
+    });
+
+    describe('/admin', () => {
+        it('/exists/helow1 should tell admin helow1 not exists', (done) => {
+            chai.request(server)
+                .get('/api/v1.0/admin/exists/name/helow1')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.exists).to.equal(false);
+                    done();
+                });
+        });
+    });
+});
