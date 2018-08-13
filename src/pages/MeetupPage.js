@@ -22,8 +22,8 @@ class MeetupPage extends React.Component {
 
     const events = this.state.events.map(event=>
       <Events key={event.id}>
-        {event.name}
-        {event.local_date}
+        <div>{event.name}</div>
+        <div>{event.local_date} {event.local_time}</div>
       </Events>)
 
     return(
