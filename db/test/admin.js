@@ -43,5 +43,27 @@ describe('Admins', () => {
                     done();
                 });
         });
+        it('/register/local should add a new admin', (done) => {
+            chai.request(server)
+                // .post(`{'name':'helow1','password':'asdasd'}`)
+                .post('/api/v1.0/admin/register/local')
+                .send({"username":"helow1","password":"asdasd"})
+                .end((err, res) => {
+                    res.should.have.status(201);
+                    expect(res.body).to.be.an('object');
+                    // expect(res.body.exists).to.equal(false);
+                    done();
+                });
+        });
+        it('/exists/helow1 should tell admin helow1 now exists', (done) => {
+            chai.request(server)
+                .get('/api/v1.0/admin/exists/name/helow1')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.exists).to.equal(true);
+                    done();
+                });
+        });
     });
 });
