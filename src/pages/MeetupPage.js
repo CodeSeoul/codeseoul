@@ -2,8 +2,12 @@ import React from 'react';
 
 class MeetupPage extends React.Component {
 
+  state={
+    events : []
+  }
+
   render(){
-    return(
+    return(      
       <div>Meetup page</div>
     )
   }
