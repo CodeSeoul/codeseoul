@@ -1,4 +1,5 @@
 import React from 'react';
+import { ShowingEventsContainer, Events} from '../styles/ShowingEvents'
 
 class MeetupPage extends React.Component {
 
@@ -31,8 +32,8 @@ class MeetupPage extends React.Component {
           <div>
             Current events
           </div>
-          <div>
-          </div>
+          <ShowingEventsContainer>
+          </ShowingEventsContainer>
         </section>
       </React.Fragment>
     )
