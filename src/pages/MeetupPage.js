@@ -18,8 +18,23 @@ class MeetupPage extends React.Component {
   }
 
   render(){
-    return(      
-      <div>Meetup page</div>
+    return(
+      <React.Fragment>
+        <header>Meetup page</header>
+        {/* Creating an event */}
+        <section>
+          Create an event
+        </section>
+
+        {/* Showing current events */}
+        <section>
+          <div>
+            Current events
+          </div>
+          <div>
+          </div>
+        </section>
+      </React.Fragment>
     )
   }
 }
