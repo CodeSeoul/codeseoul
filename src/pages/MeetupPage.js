@@ -20,7 +20,12 @@ class MeetupPage extends React.Component {
 
   render(){
 
-    const events = this.state.events.map(event=><Events key={event.id}>{event.name}</Events>)
+    const events = this.state.events.map(event=>
+      <Events key={event.id}>
+        {event.name}
+        {event.local_date}
+      </Events>)
+
     return(
       <React.Fragment>
         <header>Meetup page</header>
