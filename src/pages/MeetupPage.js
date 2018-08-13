@@ -19,6 +19,8 @@ class MeetupPage extends React.Component {
   }
 
   render(){
+
+    const events = this.state.events.map(event=><Events key={event.id}>{event.name}</Events>)
     return(
       <React.Fragment>
         <header>Meetup page</header>
@@ -33,6 +35,7 @@ class MeetupPage extends React.Component {
             Current events
           </div>
           <ShowingEventsContainer>
+            {events}
           </ShowingEventsContainer>
         </section>
       </React.Fragment>
