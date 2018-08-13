@@ -21,14 +21,21 @@ class MeetupPage extends React.Component {
   render(){
 
     const events = this.state.events.map(event=>
-      <Events key={event.id}>
-        <div>{event.group.name}</div>
-        <div>
-          {event.name}
-          <br/>
-          {event.local_date} {event.local_time}
-        </div>
-      </Events>)
+      {
+        return event.status === 'upcoming' ?
+          <Events key={event.id}>
+            <div>
+              {event.group.name}
+            </div>
+            <div>
+              {event.name}
+              <br/>
+              {event.local_date} {event.local_time}
+            </div>
+          </Events>
+         : null
+      }
+    )
 
     return(
       <React.Fragment>
