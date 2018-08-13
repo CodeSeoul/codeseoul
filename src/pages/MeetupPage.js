@@ -1,7 +1,12 @@
 import React from 'react';
 
-const MeetupPage = () => (
-  <div>Meetup page</div>
-);
+class MeetupPage extends React.Component {
+
+  render(){
+    return(
+      <div>Meetup page</div>
+    )
+  }
+}
 
 export default MeetupPage;
