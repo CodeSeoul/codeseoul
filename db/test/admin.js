@@ -65,5 +65,27 @@ describe('Admins', () => {
                     done();
                 });
         });
+        it('/login should fail with incorrect password', (done) => {
+            chai.request(server)
+                .post('/api/v1.0/admin/login')
+                .send({"username":"helow1","password":"asdasd2"})
+                .end((err, res) => {
+                    res.should.have.status(401);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.success).to.equal(false);
+                    done();
+                });
+        });
+        it('/login should success with correct password', (done) => {
+            chai.request(server)
+                .post('/api/v1.0/admin/login')
+                .send({"username":"helow1","password":"asdasd"})
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.success).to.equal(true);
+                    done();
+                });
+        });
     });
 });
