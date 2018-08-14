@@ -4,16 +4,23 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js",
-    "start":"node src/index.js"
+    "dev": "cross-env NODE_PATH=src NODE_ENV=dev nodemon --watch src/ src/index.js",
+    "start": "node src/index.js",
+    "test": "cross-env NODE_PATH=src NODE_ENV=test mocha --watch test/ --timeout 10000"
   },
   "dependencies": {
+    "config": "^2.0.1",
     "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "mongoose": "^5.2.6"
+    "mongoose": "^5.2.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.3"
   }
 }
