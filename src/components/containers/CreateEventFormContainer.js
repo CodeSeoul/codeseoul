@@ -9,7 +9,8 @@ class CreateEventFormContainer extends React.Component {
       description: '',
       duration: '',
       date: '',
-      time: '',
+      startTime: '',
+      endTime: '',
       directions: '',
       venueId: '25507426' //default wcoding
     }
@@ -32,8 +33,7 @@ class CreateEventFormContainer extends React.Component {
       1000;
     return milliseconds;
   };
-  1534291200000;
-  1534341600000;
+
   createEvent = e => {
     e.preventDefault();
     const {
@@ -42,16 +42,18 @@ class CreateEventFormContainer extends React.Component {
       directions,
       venueId,
       date,
-      time,
-      duration
+      startTime,
+      endTime
     } = this.state.eventData;
     let epochTime = new Date(date).valueOf();
     epochTime -= 32400000; //sets time to midnight of the date
-    const startTime = this.convertTime(time);
-    epochTime += startTime;
+    const eventStartTime = this.convertTime(startTime);
+    epochTime += eventStartTime;
     //console.log('epochTime', epochTime);
-    let eventDuration = duration * 60 * 60 * 1000; //set duration to milliseconds
+    const eventEndTime = this.convertTime(endTime);
+    let eventDuration = eventEndTime - eventStartTime;
     console.log('eventDuration', eventDuration);
+    console.log('startTime', startTime);
     const APIkey = MY_KEY.meetupAPIKey;
     fetch(
       `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&time=${epochTime}&duration=${eventDuration}&venue_id=${venueId}&how_to_find_us=${directions}&publish_status=draft`,
@@ -69,7 +71,6 @@ class CreateEventFormContainer extends React.Component {
       .then(data => console.log(data));
   };
   render() {
-    console.log(this.convertTime(this.state.eventData.time));
     console.log('this.this.state.eventData', this.state.eventData);
     return (
       <CreateEventForm
