@@ -2,7 +2,7 @@ import React from 'react';
 
 const MeetupForm = props => {
   const { onChangeHandler, createEvent, event } = props;
-  const { name, description, directions } = event;
+  const { name, description, directions, time, duration } = event;
   return (
     <div id="create-event-form">
       <form>
@@ -33,6 +33,16 @@ const MeetupForm = props => {
           <option value="25507426">WCoding</option>
           <option value="24727562">Seoul Global Center</option>
         </select>
+        <input type="date" name="date" onChange={e => onChangeHandler(e)} />
+        <input
+          type="time"
+          name="time"
+          min="00:00"
+          max="24:00"
+          onChange={e => onChangeHandler(e)}
+          value={time}
+        />
+
         <button onClick={createEvent}>Create Event</button>
       </form>
     </div>

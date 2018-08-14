@@ -11,7 +11,7 @@ class MeetupFormContainer extends React.Component {
       date: '',
       time: '',
       directions: '',
-      venueId: ''
+      venueId: '25507426' //default wcoding
     }
   };
   onChangeHandler = e => {
@@ -26,13 +26,33 @@ class MeetupFormContainer extends React.Component {
       }
     });
   };
-
+  convertTime = time => {
+    let milliseconds =
+      (Number(time.split(':')[0]) * 60 * 60 + Number(time.split(':')[1]) * 60) *
+      1000;
+    return milliseconds;
+  };
+  1534291200000;
+  1534341600000;
   createEvent = e => {
     e.preventDefault();
-    const { name, description, directions, venueId } = this.state.eventData;
+    const {
+      name,
+      description,
+      directions,
+      venueId,
+      date,
+      time
+    } = this.state.eventData;
+    let epochTime = new Date(date).valueOf();
+    epochTime -= 32400000; //sets time to midnight of the date
+    console.log('epochTime 1', epochTime);
+    const startTime = this.convertTime(time);
+    epochTime += startTime;
+    console.log('epochTime', epochTime);
     const APIkey = MY_KEY.meetupAPIKey;
     fetch(
-      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&venue_id=${venueId}&how_to_find_us=${directions}`,
+      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&time=${epochTime}&duration=7200000&venue_id=${venueId}&how_to_find_us=${directions}&publish_status=draft`,
       {
         method: 'POST',
         headers: {
@@ -47,6 +67,7 @@ class MeetupFormContainer extends React.Component {
       .then(data => console.log(data));
   };
   render() {
+    console.log(this.convertTime(this.state.eventData.time));
     console.log('this.this.state.eventData', this.state.eventData);
     return (
       <MeetupForm
