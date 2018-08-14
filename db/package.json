@@ -12,7 +12,6 @@
   "dependencies": {
     "config": "^2.0.1",
     "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.6",
     "passport": "^0.4.0",
