@@ -1,34 +1,17 @@
-//During the test the env variable is set to test
-process.env.NODE_ENV = 'test';
-let users
-
-let mongoose = require("mongoose");
 let Admin = require('models/Admin');
 
-const config = require('config');
-
-//Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-// let app = require('index');
-// var server;
 let should = chai.should();
 let expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('Admins', () => {
     before((done) => {
-        // server = app.start(done);
-        // console.log('remove all admin');
-        Admin.drop();
+        Admin.drop(); // remove all admins
         done();
     })
     beforeEach((done) => { //Before each test
-        done();
-    });
-
-    after((done)=>{
-        // server.close();
         done();
     });
 
@@ -45,13 +28,14 @@ describe('Admins', () => {
         });
         it('/register/local should add a new admin', (done) => {
             chai.request(server)
-                // .post(`{'name':'helow1','password':'asdasd'}`)
                 .post('/api/v1.0/admin/register/local')
-                .send({"username":"helow1","password":"asdasd"})
+                .send({
+                    "username": "helow1",
+                    "password": "asdasd"
+                })
                 .end((err, res) => {
                     res.should.have.status(201);
                     expect(res.body).to.be.an('object');
-                    // expect(res.body.exists).to.equal(false);
                     done();
                 });
         });
@@ -68,7 +52,10 @@ describe('Admins', () => {
         it('/login should fail with incorrect password', (done) => {
             chai.request(server)
                 .post('/api/v1.0/admin/login')
-                .send({"username":"helow1","password":"asdasd2"})
+                .send({
+                    "username": "helow1",
+                    "password": "asdasd2"
+                })
                 .end((err, res) => {
                     res.should.have.status(401);
                     expect(res.body).to.be.an('object');
@@ -79,7 +66,10 @@ describe('Admins', () => {
         it('/login should success with correct password', (done) => {
             chai.request(server)
                 .post('/api/v1.0/admin/login')
-                .send({"username":"helow1","password":"asdasd"})
+                .send({
+                    "username": "helow1",
+                    "password": "asdasd"
+                })
                 .end((err, res) => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');

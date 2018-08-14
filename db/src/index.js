@@ -7,7 +7,7 @@ const Admin = require('models/Admin');
 
 passport.use(Admin.createStrategy());
 
-let config = require('config'); //we load the db location from the JSON files
+let config = require('config');
 
 const { PORT } = config;
 const port = PORT ? PORT : 4000;
