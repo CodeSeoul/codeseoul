@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'util';
 import CreateEventForm from '../presentational/CreateEventForm';
 import { MY_KEY } from '../../config.js';
 class CreateEventFormContainer extends React.Component {
@@ -68,10 +67,14 @@ class CreateEventFormContainer extends React.Component {
         console.log(res.status);
         return res.json();
       })
-      .then(data => console.log(data));
+      .catch(err => console.log('error:', err))
+      .then(data => {
+        console.log('response data', data);
+        this.props.handleToggle();
+      });
   };
   render() {
-    console.log('this.this.state.eventData', this.state.eventData);
+    console.log('this.state.eventData', this.state.eventData);
     return (
       <CreateEventForm
         onChangeHandler={this.onChangeHandler}

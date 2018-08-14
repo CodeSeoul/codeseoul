@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShowingEventsContainer, Events } from '../styles/ShowingEvents';
 import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
+import ToggleDisplay from '../components/helper/ToggleDisplay';
 
 class MeetupPage extends React.Component {
   state = {
@@ -34,8 +35,10 @@ class MeetupPage extends React.Component {
     return (
       <React.Fragment>
         <header>Meetup page</header>
-        <CreateEventFormContainer />
         <section>Create an event</section>
+        <ToggleDisplay buttonText="Create New Event">
+          <CreateEventFormContainer />
+        </ToggleDisplay>
 
         {/* Showing current events */}
         <section>
