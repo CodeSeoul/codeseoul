@@ -4,7 +4,17 @@ import { ShowingEventsContainer, Events} from '../styles/ShowingEvents'
 class MeetupPage extends React.Component {
 
   state={
-    events : []
+    events : [],
+    numberOfEvents : 2
+  }
+
+  ShowMoreEvents= (e)=>{
+    e.preventDefault();
+    let newNumberOfEvents= this.state.numberOfEvents;
+    newNumberOfEvents = newNumberOfEvents +3;
+    this.setState({
+      numberOfEvents : newNumberOfEvents
+    })
   }
 
   componentDidMount(){
@@ -23,7 +33,7 @@ class MeetupPage extends React.Component {
     const events = this.state.events.filter(event=>event.status === 'upcoming').map((event, index)=>
       { 
         return (
-        index <=2 ?
+        index <=this.state.numberOfEvents ?
           (<Events key={event.id}>
             <div>
               {event.group.name}
@@ -55,6 +65,7 @@ class MeetupPage extends React.Component {
           <ShowingEventsContainer>
             {events}
           </ShowingEventsContainer>
+          <button onClick = {(e)=>this.ShowMoreEvents(e)}/>
         </section>
       </React.Fragment>
     )
