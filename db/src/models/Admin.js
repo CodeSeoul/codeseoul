@@ -1,20 +1,26 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const passportLocalMongoose = require('passport-local-mongoose');
+
+const {
+    Schema
+} = mongoose;
 
 const Admin = new Schema({
-    name: Schema.Types.String
+    username: String,
+    email: String,
+    password: String
 })
 
-Admin.statics.findByName = function (name){
-    return this.findOne({name}).exec();
+Admin.plugin(passportLocalMongoose);
+
+Admin.statics.findByUserName = function (username) {
+    return this.findOne({
+        username
+    }).exec();
 }
 
-Admin.statics.register = function({name}){
-    const admin = new this({
-        name
-    });
+Admin.statics.drop = function () {
+    return this.remove({}).exec();
+};
 
-    return admin.save();
-}
-
-module.exports = mongoose.model('Admin', Admin);
+module.exports = mongoose.models.Admin || mongoose.model('Admin', Admin);
