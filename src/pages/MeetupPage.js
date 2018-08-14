@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShowingEventsContainer, Events } from '../styles/ShowingEvents';
-import MeetupFormContainer from '../components/containers/MeetupFormContainer';
+import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
 
 class MeetupPage extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class MeetupPage extends React.Component {
     return (
       <React.Fragment>
         <header>Meetup page</header>
-        <MeetupFormContainer />
+        <CreateEventFormContainer />
         <section>Create an event</section>
 
         {/* Showing current events */}

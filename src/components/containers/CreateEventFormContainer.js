@@ -1,8 +1,8 @@
 import React from 'react';
 import { format } from 'util';
-import MeetupForm from '../presentational/MeetupForm';
+import CreateEventForm from '../presentational/CreateEventForm';
 import { MY_KEY } from '../../config.js';
-class MeetupFormContainer extends React.Component {
+class CreateEventFormContainer extends React.Component {
   state = {
     eventData: {
       name: '',
@@ -72,7 +72,7 @@ class MeetupFormContainer extends React.Component {
     console.log(this.convertTime(this.state.eventData.time));
     console.log('this.this.state.eventData', this.state.eventData);
     return (
-      <MeetupForm
+      <CreateEventForm
         onChangeHandler={this.onChangeHandler}
         createEvent={this.createEvent}
         event={this.state.eventData}
@@ -81,4 +81,4 @@ class MeetupFormContainer extends React.Component {
   }
 }
 
-export default MeetupFormContainer;
+export default CreateEventFormContainer;

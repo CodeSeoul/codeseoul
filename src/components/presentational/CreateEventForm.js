@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MeetupForm = props => {
+const CreateEventForm = props => {
   const { onChangeHandler, createEvent, event } = props;
   const { name, description, directions, time, duration } = event;
   return (
@@ -56,4 +56,4 @@ const MeetupForm = props => {
   );
 };
 
-export default MeetupForm;
+export default CreateEventForm;
