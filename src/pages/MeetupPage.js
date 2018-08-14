@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowingEventsContainer, Events} from '../styles/ShowingEvents'
+import { ShowingEventsContainer, Events, LoadMoreEvents} from '../styles/ShowingEvents'
 
 class MeetupPage extends React.Component {
 
@@ -65,7 +65,7 @@ class MeetupPage extends React.Component {
           <ShowingEventsContainer>
             {events}
           </ShowingEventsContainer>
-          <button onClick = {(e)=>this.ShowMoreEvents(e)}/>
+          <LoadMoreEvents onClick = {(e)=>this.ShowMoreEvents(e)}>More Events</LoadMoreEvents>
         </section>
       </React.Fragment>
     )
@@ -73,3 +73,5 @@ class MeetupPage extends React.Component {
 }
 
 export default MeetupPage;
+
+
