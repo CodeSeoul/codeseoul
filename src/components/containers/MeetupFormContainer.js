@@ -42,17 +42,19 @@ class MeetupFormContainer extends React.Component {
       directions,
       venueId,
       date,
-      time
+      time,
+      duration
     } = this.state.eventData;
     let epochTime = new Date(date).valueOf();
     epochTime -= 32400000; //sets time to midnight of the date
-    console.log('epochTime 1', epochTime);
     const startTime = this.convertTime(time);
     epochTime += startTime;
-    console.log('epochTime', epochTime);
+    //console.log('epochTime', epochTime);
+    let eventDuration = duration * 60 * 60 * 1000; //set duration to milliseconds
+    console.log('eventDuration', eventDuration);
     const APIkey = MY_KEY.meetupAPIKey;
     fetch(
-      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&time=${epochTime}&duration=7200000&venue_id=${venueId}&how_to_find_us=${directions}&publish_status=draft`,
+      `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&time=${epochTime}&duration=${eventDuration}&venue_id=${venueId}&how_to_find_us=${directions}&publish_status=draft`,
       {
         method: 'POST',
         headers: {

@@ -42,7 +42,14 @@ const MeetupForm = props => {
           onChange={e => onChangeHandler(e)}
           value={time}
         />
-
+        <input
+          type="number"
+          name="duration"
+          min="0.5"
+          max="24"
+          onChange={e => onChangeHandler(e)}
+          value={duration}
+        />
         <button onClick={createEvent}>Create Event</button>
       </form>
     </div>
