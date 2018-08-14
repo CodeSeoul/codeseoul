@@ -20,10 +20,11 @@ class MeetupPage extends React.Component {
 
   render(){
 
-    const events = this.state.events.map(event=>
-      {
-        return event.status === 'upcoming' ?
-          <Events key={event.id}>
+    const events = this.state.events.filter(event=>event.status === 'upcoming').map((event, index)=>
+      { 
+        return (
+        index <=2 ?
+          (<Events key={event.id}>
             <div>
               {event.group.name}
             </div>
@@ -32,8 +33,9 @@ class MeetupPage extends React.Component {
               <br/>
               {event.local_date} {event.local_time}
             </div>
-          </Events>
+          </Events>)
          : null
+        )
       }
     )
 
