@@ -83,7 +83,7 @@ class MeetupPage extends React.Component {
 
         {/* Modal */}
 
-        <Modal show={this.state.show} onClose={(e)=>this.ShowModal(e)}>
+        <Modal show={this.state.show} onClose={()=>this.ShowModal()}>
           <div>Modal</div>
         </Modal>
 
