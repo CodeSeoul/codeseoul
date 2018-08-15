@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShowingEventsContainer, Events, LoadMoreEvents} from '../styles/ShowingEvents'
+import DetailedEventInfo from '../components/DetailedEventInfo'
 import Modal from '../components/Modal/Modal'
 
 class MeetupPage extends React.Component {
@@ -94,7 +95,7 @@ class MeetupPage extends React.Component {
         {/* Modal */}
 
         <Modal show={this.state.show} onClose={()=>this.onClose()}>
-          <div eventInfo = {this.state.clickedEvent}>{this.state.clickedEvent.name}</div>
+          <DetailedEventInfo eventInfo = {this.state.clickedEvent}/>
         </Modal>
 
       </React.Fragment>
