@@ -2,12 +2,23 @@ import React from 'react';
 
 class Modal extends React.Component{
 
+
     render(){
-        return(
-        <div>
-            Hello World!
-        </div>
-        )
+
+        if(!this.props.show)
+        {
+            return null
+        }
+        else{
+            return(
+                <div>
+                {this.props.children}
+                <button onClick ={()=>this.props.onClose()}>
+                  Close
+                </button>
+                </div>
+            )
+        }
     }
 }
 

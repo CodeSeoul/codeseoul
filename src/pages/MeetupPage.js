@@ -6,8 +6,17 @@ class MeetupPage extends React.Component {
 
   state={
     events : [],
-    numberOfEvents : 2
+    numberOfEvents : 2,
+    show : false
   }
+
+  ShowModal= (e)=>{
+    let newShow = this.state.show
+    this.setState({
+      show : !newShow
+    })
+  }
+  
 
   ShowMoreEvents= (e)=>{
     e.preventDefault();
@@ -35,7 +44,10 @@ class MeetupPage extends React.Component {
       { 
         return (
         index <=this.state.numberOfEvents ?
-          (<Events key={event.id}>
+          (<Events
+            key={event.id}
+            onClick = {()=>this.ShowModal()}
+            >
             <div>
               {event.group.name}
             </div>
@@ -68,7 +80,13 @@ class MeetupPage extends React.Component {
           </ShowingEventsContainer>
           <LoadMoreEvents onClick = {(e)=>this.ShowMoreEvents(e)}>More Events</LoadMoreEvents>
         </section>
-        <Modal/>
+
+        {/* Modal */}
+
+        <Modal show={this.state.show} onClose={(e)=>this.ShowModal(e)}>
+          <div>Modal</div>
+        </Modal>
+
       </React.Fragment>
     )
   }
