@@ -7,10 +7,20 @@ class MeetupPage extends React.Component {
   state={
     events : [],
     numberOfEvents : 2,
-    show : false
+    show : false,
+    clickedEvent : 'sdfsdf'
   }
 
-  ShowModal= (e)=>{
+  ShowModal= (e, event)=>{
+    let newShow = this.state.show
+    this.setState({
+      show : !newShow,
+      clickedEvent : event
+    })
+    console.log(this.state.clickedEvent)
+  }
+
+  onClose= ()=>{
     let newShow = this.state.show
     this.setState({
       show : !newShow
@@ -46,7 +56,7 @@ class MeetupPage extends React.Component {
         index <=this.state.numberOfEvents ?
           (<Events
             key={event.id}
-            onClick = {()=>this.ShowModal()}
+            onClick = {(e)=>this.ShowModal(e, event)}
             >
             <div>
               {event.group.name}
@@ -83,8 +93,8 @@ class MeetupPage extends React.Component {
 
         {/* Modal */}
 
-        <Modal show={this.state.show} onClose={()=>this.ShowModal()}>
-          <div>Modal</div>
+        <Modal show={this.state.show} onClose={()=>this.onClose()}>
+          <div eventInfo = {this.state.clickedEvent}>{this.state.clickedEvent.name}</div>
         </Modal>
 
       </React.Fragment>
