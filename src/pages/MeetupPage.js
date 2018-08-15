@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShowingEventsContainer, Events, LoadMoreEvents} from '../styles/ShowingEvents'
+import Modal from '../components/Modal/Modal'
 
 class MeetupPage extends React.Component {
 
@@ -67,6 +68,7 @@ class MeetupPage extends React.Component {
           </ShowingEventsContainer>
           <LoadMoreEvents onClick = {(e)=>this.ShowMoreEvents(e)}>More Events</LoadMoreEvents>
         </section>
+        <Modal/>
       </React.Fragment>
     )
   }
