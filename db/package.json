@@ -9,6 +9,7 @@
     "test": "cross-env NODE_PATH=src NODE_ENV=test mocha --watch test/ --timeout 10000"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "config": "^2.0.1",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
