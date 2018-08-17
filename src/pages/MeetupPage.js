@@ -2,7 +2,8 @@ import React from "react";
 import {
   ShowingEventsContainer,
   Events,
-  LoadMoreEvents
+  LoadMoreEvents,
+  CurrentEventsSection
 } from "../styles/ShowingEvents";
 import DetailedEventInfo from "../components/DetailedEventInfo";
 import Modal from "../components/Modal/Modal";
@@ -77,13 +78,13 @@ class MeetupPage extends React.Component {
         <section>Create an event</section>
 
         {/* Showing current events */}
-        <section>
-          <div>Current events</div>
+        <CurrentEventsSection>
+          <div className='title'>Current events</div>
           <ShowingEventsContainer>{events}</ShowingEventsContainer>
           <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
             More Events
           </LoadMoreEvents>
-        </section>
+        </CurrentEventsSection>
 
         {/* Modal */}
 

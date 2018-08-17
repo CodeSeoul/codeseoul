@@ -1,23 +1,29 @@
 import styled from 'styled-components'
 import * as style from './variable'
 
+const CurrentEventsSection = styled.section`
+
+padding : 3rem;
+
+.title{
+    font-size : 2rem;
+    font-weight : 600;
+    margin-bottom : 1.1rem;
+}
+` 
+
 const ShowingEventsContainer = styled.div`
 
  display : grid;
- margin : 2rem 3rem 0.5rem 3rem;
  grid-template-columns : repeat(3, 1fr);
  grid-auto-rows : minmax(5rem, auto);
- 
- >*{
-     border : 1px solid black;
- }
+ grid-column-gap : 1rem;
 
 `
 
 const Events = styled.div`
 
     background-color : ${style.MiddleColor};
-    margin : 0.8rem;
     border : none;    
 
     .groupName{
@@ -50,4 +56,4 @@ const LoadMoreEvents = styled.button`
     }
 
 `
-export { ShowingEventsContainer, Events, LoadMoreEvents }
+export { CurrentEventsSection, ShowingEventsContainer, Events, LoadMoreEvents }
