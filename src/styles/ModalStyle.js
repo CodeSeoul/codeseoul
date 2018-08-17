@@ -14,7 +14,7 @@ const ModalBackdrop = styled.div`
 `
 
 const ModalContent = styled.div`
-  overflow : scroll;
+
   background-color : #fff;
   border-radius : 0.5;
   max-width : 70%;
