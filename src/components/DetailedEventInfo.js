@@ -20,14 +20,16 @@ const DetailedEventInfo = (props)=>{
 
     return(
         <DetailedEventInfoStyle>
-            <h1 className='title'>{name}</h1>
+            <h1>{name}</h1>
             <div>
             {new Date(time).toLocaleString('us-GB',{month : "short", day:"numeric"})} <t/>
             {local_time} ~ {new Date(time+duration).toLocaleString('en-GB',{hour:'numeric',minute:'2-digit'})}
             
             </div>
             <hr/>
+            <h2>Details</h2>
             <div dangerouslySetInnerHTML={{__html:description}}></div>
+            <h2>Attendees</h2>
             <div className='image-container'>
             {members}
             </div>

@@ -62,18 +62,21 @@ const DetailedEventInfoStyle = styled.div`
     font-size : 1.2rem;
     line-height : 2;
     
-    .title{
+    h1{
         font-size : 2.5rem;
         font-weight : bold;
     }
-
+    h2{
+        font-size : 1.5rem;
+        font-weight : bold;
+    }
     .image-container{
         display : grid;
         grid-template-columns : repeat(6, 1fr);
         grid-row-gap : 1rem;
         grid-column-gap : 1rem;
         text-align:center;
-        margin : 2rem 0;
+        margin : 1rem 0;
     }
 
     img{
