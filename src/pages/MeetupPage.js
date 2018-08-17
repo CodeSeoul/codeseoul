@@ -14,7 +14,7 @@ class MeetupPage extends React.Component {
     numberOfEvents: 2,
     show: false,
     clickedEvent: null,
-    rsvps : []
+    rsvps: []
   };
 
   ShowModal = (e, event) => {
@@ -23,14 +23,16 @@ class MeetupPage extends React.Component {
       clickedEvent: event
     });
 
-    fetch(`https://api.meetup.com/Learn-Teach-Code-Seoul/events/${event.id}/rsvps`)
-    .then(res => res.json())
-    .then(rsvps => {
-      this.setState({
-        rsvps : rsvps,
-        show: !newShow
+    fetch(
+      `https://api.meetup.com/Learn-Teach-Code-Seoul/events/${event.id}/rsvps`
+    )
+      .then(res => res.json())
+      .then(rsvps => {
+        this.setState({
+          rsvps: rsvps,
+          show: !newShow
+        });
       });
-    });
     console.log(this.state);
   };
 
@@ -58,7 +60,6 @@ class MeetupPage extends React.Component {
           events: events
         });
       });
-
   }
 
   render() {
@@ -66,17 +67,17 @@ class MeetupPage extends React.Component {
       .filter(event => event.status === "upcoming")
       .map((event, index) => {
         return index <= this.state.numberOfEvents ? (
-          <Events
-            key={event.id}
-            onClick={e => this.ShowModal(e, event)}>
-              <div className='groupName'>
-                {event.group.name}
-              </div>
-              <div className='eventInfo'>
-                {event.name}
-                <br />
-                {new Date(event.time).toLocaleString('en-US',{month : "short", day:"numeric"})} {event.local_time}
-              </div>
+          <Events key={event.id} onClick={e => this.ShowModal(e, event)}>
+            <div className="groupName">{event.group.name}</div>
+            <div className="eventInfo">
+              {event.name}
+              <br />
+              {new Date(event.time).toLocaleString("en-US", {
+                month: "short",
+                day: "numeric"
+              })}{" "}
+              {event.local_time}
+            </div>
           </Events>
         ) : null;
       });
@@ -89,7 +90,7 @@ class MeetupPage extends React.Component {
 
         {/* Showing current events */}
         <CurrentEventsSection>
-          <div className='title'>Current Events</div>
+          <div className="title">Current Events</div>
           <ShowingEventsContainer>{events}</ShowingEventsContainer>
           <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
             More Events
@@ -99,7 +100,10 @@ class MeetupPage extends React.Component {
         {/* Modal */}
 
         <Modal show={this.state.show} onClose={() => this.onClose()}>
-          <DetailedEventInfo eventInfo={this.state.clickedEvent} rsvps={this.state.rsvps} />
+          <DetailedEventInfo
+            eventInfo={this.state.clickedEvent}
+            rsvps={this.state.rsvps}
+          />
         </Modal>
       </React.Fragment>
     );
