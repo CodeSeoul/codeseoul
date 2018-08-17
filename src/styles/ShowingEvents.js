@@ -29,7 +29,9 @@ const Events = styled.div`
         }
 
     .eventInfo{
-        padding : 1rem;        
+        padding : 1rem;
+        line-height : 1.5;
+        font-size : 1.2rem;    
     }
 
 `
@@ -42,7 +44,7 @@ const LoadMoreEvents = styled.button`
     text-decoration : none;
     border : none;
     font-size : 1.1rem;
-    width : 40%;
+    width : 20%;
     :hover{
         background-color : ${style.LightPrimaryColor};
     }
