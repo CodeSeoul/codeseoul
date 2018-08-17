@@ -31,7 +31,7 @@ const Events = styled.div`
         background-color : ${style.DarkPrimaryColor};
         color : white;
         text-align :center;
-        font-size : 1.8rem;
+        font-size : 1.4rem;
         padding : 1rem 0.2rem;
         }
 

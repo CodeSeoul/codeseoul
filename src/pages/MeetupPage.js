@@ -89,7 +89,7 @@ class MeetupPage extends React.Component {
 
         {/* Showing current events */}
         <CurrentEventsSection>
-          <div className='title'>Current events</div>
+          <div className='title'>Current Events</div>
           <ShowingEventsContainer>{events}</ShowingEventsContainer>
           <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
             More Events
