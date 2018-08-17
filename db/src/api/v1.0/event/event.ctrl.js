@@ -8,3 +8,7 @@ exports.MeetupEvents = async (req, res) => {
     
     res.status(200).json({data});
 }
+
+exports.CreateMeetupEvents = async (req, res) => {
+    res.status(501).json({});
+}
