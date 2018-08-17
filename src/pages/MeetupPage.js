@@ -13,16 +13,25 @@ class MeetupPage extends React.Component {
     events: [],
     numberOfEvents: 2,
     show: false,
-    clickedEvent: null
+    clickedEvent: null,
+    rsvps : []
   };
 
   ShowModal = (e, event) => {
     let newShow = this.state.show;
     this.setState({
-      show: !newShow,
       clickedEvent: event
     });
-    console.log(this.state.clickedEvent);
+
+    fetch(`https://api.meetup.com/Learn-Teach-Code-Seoul/events/${event.id}/rsvps`)
+    .then(res => res.json())
+    .then(rsvps => {
+      this.setState({
+        rsvps : rsvps,
+        show: !newShow
+      });
+    });
+    console.log(this.state);
   };
 
   onClose = () => {
@@ -90,7 +99,7 @@ class MeetupPage extends React.Component {
         {/* Modal */}
 
         <Modal show={this.state.show} onClose={() => this.onClose()}>
-          <DetailedEventInfo eventInfo={this.state.clickedEvent} />
+          <DetailedEventInfo eventInfo={this.state.clickedEvent} rsvps={this.state.rsvps} />
         </Modal>
       </React.Fragment>
     );
