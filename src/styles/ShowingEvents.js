@@ -20,11 +20,11 @@ const ShowingEventsContainer = styled.div`
 `;
 
 const Events = styled.div`
-  background-color: ${style.MiddleColor};
+
   border: none;
 
   .groupName {
-    background-color: ${style.DarkPrimaryColor};
+    background-color: ${style.PrimaryColor};
     color: white;
     text-align: center;
     font-size: 1.4rem;
@@ -42,13 +42,13 @@ const LoadMoreEvents = styled.button`
   margin: 1rem auto;
   display: block;
   height: 2rem;
-  background-color: ${style.LightSecondaryColor};
+  background-color: ${style.FourthColor};
   text-decoration: none;
   border: none;
   font-size: 1.1rem;
   width: 20%;
   :hover {
-    background-color: ${style.LightPrimaryColor};
+    background-color: ${style.ThirdColor};
   }
 `;
 
