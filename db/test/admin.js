@@ -6,7 +6,7 @@ let should = chai.should();
 let expect = chai.expect;
 chai.use(chaiHttp);
 
-describe('Admins', () => {
+describe.skip('Admins', () => {
     before((done) => {
         Admin.drop(); // remove all admins
         done();
