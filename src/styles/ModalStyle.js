@@ -9,11 +9,12 @@ const ModalBackdrop = styled.div`
   right : 0;
   background-color : rgba(0,0,0,0.3);
   padding : 3rem;
+  overflow : scroll;
 
 `
 
 const ModalContent = styled.div`
-
+  overflow : scroll;
   background-color : #fff;
   border-radius : 0.5;
   max-width : 70%;
