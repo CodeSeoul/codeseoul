@@ -1,15 +1,14 @@
 import React from 'react'
-import {CurrentEventsSection} from '../styles/ShowingEvents'
 
 const DetailedEventInfo = (props)=>{
 
     const {name, description, time, duration } = props.eventInfo
 
-    const members = props.rsvps.map(rsvp=>{
+    const members = props.rsvps.map((rsvp, index)=>{
         return(
-            <div>
+            <div key={index}>
             {rsvp.member.name}
-            <img src = {rsvp.member.photo.photo_link}/>
+            <img alt ='error' src = {rsvp.member.photo.photo_link}/>
             </div>
            
         )
