@@ -15,7 +15,9 @@ const DetailedEventInfo = props => {
 
   return (
     <DetailedEventInfoStyle>
+      {/* event name */}
       <h1>{name}</h1>
+      {/* event time */}
       <div>
         {new Date(time).toLocaleString("us-GB", {
           month: "short",
@@ -29,8 +31,10 @@ const DetailedEventInfo = props => {
         })}
       </div>
       <hr />
+      {/* event details */}
       <h2>Details</h2>
       <div dangerouslySetInnerHTML={{ __html: description }} />
+      {/* event attendees */}
       <h2>Attendees</h2>
       <div className="image-container">{members}</div>
     </DetailedEventInfoStyle>

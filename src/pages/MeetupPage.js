@@ -17,12 +17,14 @@ class MeetupPage extends React.Component {
     rsvps: []
   };
 
+  //Open Modal
   ShowModal = (e, event) => {
     let newShow = this.state.show;
     this.setState({
       clickedEvent: event
     });
 
+    //fetch attendees data
     fetch(
       `https://api.meetup.com/Learn-Teach-Code-Seoul/events/${event.id}/rsvps`
     )
@@ -35,14 +37,15 @@ class MeetupPage extends React.Component {
       });
     console.log(this.state);
   };
-
+  
+  //Close Modal
   onClose = () => {
     let newShow = this.state.show;
     this.setState({
       show: !newShow
     });
   };
-
+  
   ShowMoreEvents = e => {
     e.preventDefault();
     let newNumberOfEvents = this.state.numberOfEvents;
@@ -52,6 +55,7 @@ class MeetupPage extends React.Component {
     });
   };
 
+  //fetch events data
   componentDidMount() {
     fetch("https://api.meetup.com/Learn-Teach-Code-Seoul/events")
       .then(res => res.json())
