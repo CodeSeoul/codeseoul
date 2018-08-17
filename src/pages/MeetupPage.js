@@ -13,7 +13,7 @@ class MeetupPage extends React.Component {
     events: [],
     numberOfEvents: 2,
     show: false,
-    clickedEvent: "sdfsdf"
+    clickedEvent: null
   };
 
   ShowModal = (e, event) => {
@@ -49,6 +49,7 @@ class MeetupPage extends React.Component {
           events: events
         });
       });
+
   }
 
   render() {
