@@ -3,7 +3,10 @@ import { DetailedEventInfoStyle } from '../styles/ShowingEvents'
 
 const DetailedEventInfo = (props)=>{
 
+    
+
     const {name, description, time, duration } = props.eventInfo
+    
 
     const members = props.rsvps.map((rsvp, index)=>{
         return(
@@ -18,7 +21,7 @@ const DetailedEventInfo = (props)=>{
     return(
         <DetailedEventInfoStyle>
             <div className='title'>{name}</div>
-            <div>{description}</div>
+            <div dangerouslySetInnerHTML={{__html:description}}></div>
             <div>{time} {time+duration}</div>
             <div className='image-container'>
             {members}

@@ -60,6 +60,7 @@ const LoadMoreEvents = styled.button`
 
 const DetailedEventInfoStyle = styled.div`
     font-size : 1.2rem;
+    line-height : 2;
     
     .title{
         font-size :1.5rem;
