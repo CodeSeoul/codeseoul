@@ -63,8 +63,10 @@ const DetailedEventInfoStyle = styled.div`
     line-height : 2;
     
     .title{
-        font-size :1.5rem;
+        font-size : 2.5rem;
+        font-weight : bold;
     }
+
     .image-container{
         display : grid;
         grid-template-columns : repeat(6, 1fr);

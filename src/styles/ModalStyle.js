@@ -7,7 +7,7 @@ const ModalBackdrop = styled.div`
   bottom :0;
   left : 0;
   right : 0;
-  background-color : rgba(0,0,0,0.3);
+  background-color : rgba(0,0,0,0.65);
   padding : 3rem;
   overflow : scroll;
 
@@ -16,11 +16,11 @@ const ModalBackdrop = styled.div`
 const ModalContent = styled.div`
 
   background-color : #fff;
-  border-radius : 0.5;
+  border-radius : 1%;
   max-width : 70%;
   min-height : 90%;
   margin : 0 auto;
-  padding : 1rem;
+  padding : 3rem;
   position : relative;
 `
 

@@ -5,7 +5,7 @@ const DetailedEventInfo = (props)=>{
 
     
 
-    const {name, description, time, duration } = props.eventInfo
+    const {name, description, time, local_time, duration } = props.eventInfo
     
 
     const members = props.rsvps.map((rsvp, index)=>{
@@ -20,9 +20,14 @@ const DetailedEventInfo = (props)=>{
 
     return(
         <DetailedEventInfoStyle>
-            <div className='title'>{name}</div>
+            <h1 className='title'>{name}</h1>
+            <div>
+            {new Date(time).toLocaleString('us-GB',{month : "short", day:"numeric"})} <t/>
+            {local_time} ~ {new Date(time+duration).toLocaleString('en-GB',{hour:'numeric',minute:'2-digit'})}
+            
+            </div>
+            <hr/>
             <div dangerouslySetInnerHTML={{__html:description}}></div>
-            <div>{time} {time+duration}</div>
             <div className='image-container'>
             {members}
             </div>
