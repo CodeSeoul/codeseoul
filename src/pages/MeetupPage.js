@@ -58,10 +58,10 @@ class MeetupPage extends React.Component {
           <Events
             key={event.id}
             onClick={e => this.ShowModal(e, event)}>
-              <div>
+              <div className='groupName'>
                 {event.group.name}
               </div>
-              <div>
+              <div className='eventInfo'>
                 {event.name}
                 <br />
                 {event.local_date} {event.local_time}

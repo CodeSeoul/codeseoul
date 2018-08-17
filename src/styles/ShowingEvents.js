@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as style from './variable'
 
 const ShowingEventsContainer = styled.div`
 
@@ -15,14 +16,36 @@ const ShowingEventsContainer = styled.div`
 
 const Events = styled.div`
 
+    background-color : ${style.MiddleColor};
+    margin : 0.8rem;
+    border : none;    
+
+    .groupName{
+        background-color : ${style.DarkPrimaryColor};
+        color : white;
+        text-align :center;
+        font-size : 1.8rem;
+        padding : 1rem 0.2rem;
+        }
+
+    .eventInfo{
+        padding : 1rem;        
+    }
+
 `
 
 const LoadMoreEvents = styled.button`
     margin : 1rem auto;
     display : block;
     height : 2rem;
-    color : grey;
-    width : 50%;
+    background-color : ${style.LightSecondaryColor};
+    text-decoration : none;
+    border : none;
+    font-size : 1.1rem;
+    width : 40%;
+    :hover{
+        background-color : ${style.LightPrimaryColor};
+    }
 
 `
 export { ShowingEventsContainer, Events, LoadMoreEvents }
