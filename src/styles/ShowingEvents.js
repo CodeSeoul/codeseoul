@@ -57,4 +57,30 @@ const LoadMoreEvents = styled.button`
     }
 
 `
-export { CurrentEventsSection, ShowingEventsContainer, Events, LoadMoreEvents }
+
+const DetailedEventInfoStyle = styled.div`
+    font-size : 1.2rem;
+    
+    .title{
+        font-size :1.5rem;
+    }
+    .image-container{
+        display : grid;
+        grid-template-columns : repeat(6, 1fr);
+        grid-row-gap : 1rem;
+        grid-column-gap : 1rem;
+        text-align:center;
+        margin : 2rem 0;
+    }
+
+    img{
+        height : 5rem;
+        width : 5rem;
+        margin : 0 auto;
+        display : block;
+        object-fit : cover;
+
+    }
+`
+
+export { CurrentEventsSection, ShowingEventsContainer, Events, LoadMoreEvents, DetailedEventInfoStyle }
