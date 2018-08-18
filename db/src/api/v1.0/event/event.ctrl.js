@@ -9,5 +9,11 @@ exports.MeetupEvents = async (req, res) => {
 }
 
 exports.CreateMeetupEvents = async (req, res) => {
-    res.status(501).json({});
+    const search = qs.stringify(req.query);
+    const data = await axios.post('https://api.meetup.com/Learn-Teach-Code-Seoul/events?' + search
+        ,req.query).then(res=>JSON.stringify(res.data));
+    if(data){
+        res.status(201).json({data});
+    }
+}
 }
