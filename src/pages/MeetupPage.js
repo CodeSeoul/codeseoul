@@ -37,7 +37,7 @@ class MeetupPage extends React.Component {
       });
     console.log(this.state);
   };
-  
+
   //Close Modal
   onClose = () => {
     let newShow = this.state.show;
@@ -45,7 +45,7 @@ class MeetupPage extends React.Component {
       show: !newShow
     });
   };
-  
+
   ShowMoreEvents = e => {
     e.preventDefault();
     let newNumberOfEvents = this.state.numberOfEvents;
@@ -70,8 +70,15 @@ class MeetupPage extends React.Component {
     const events = this.state.events
       .filter(event => event.status === "upcoming")
       .map((event, index) => {
-        return index <= this.state.numberOfEvents ? (
-          <Events key={event.id} onClick={e => this.ShowModal(e, event)}>
+        return (
+          <Events
+            className={
+              index < 3? '' :
+              index <= this.state.numberOfEvents ? "visible" : "invisible"
+            }
+            key={event.id}
+            onClick={e => this.ShowModal(e, event)}
+          >
             <div className="groupName">{event.group.name}</div>
             <div className="eventInfo">
               {event.name}
@@ -83,7 +90,7 @@ class MeetupPage extends React.Component {
               {event.local_time}
             </div>
           </Events>
-        ) : null;
+        );
       });
 
     return (
