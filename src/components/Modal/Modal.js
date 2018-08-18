@@ -1,5 +1,5 @@
 import React from "react";
-import { ModalBackdrop, ModalContent } from "../../styles/ModalStyle";
+import { ModalBackdrop, ModalContent, ModalCloseButton } from "../../styles/ModalStyle";
 
 class Modal extends React.Component {
   render() {
@@ -9,8 +9,8 @@ class Modal extends React.Component {
       return (
         <ModalBackdrop>
           <ModalContent>
+          <ModalCloseButton onClick={() => this.props.onClose()}>Close</ModalCloseButton>
             {this.props.children}
-            <button onClick={() => this.props.onClose()}>Close</button>
           </ModalContent>
         </ModalBackdrop>
       );

@@ -7,7 +7,7 @@ const DetailedEventInfo = props => {
   const members = props.rsvps.map((rsvp, index) => {
     return (
       <div key={index}>
-        {rsvp.member.name}
+        <span>{rsvp.member.name}</span>
         <img alt="error" src={rsvp.member.photo.photo_link} />
       </div>
     );
@@ -35,6 +35,7 @@ const DetailedEventInfo = props => {
       <h2>Details</h2>
       <div dangerouslySetInnerHTML={{ __html: description }} />
       {/* event attendees */}
+      <hr />
       <h2>Attendees</h2>
       <div className="image-container">{members}</div>
     </DetailedEventInfoStyle>
