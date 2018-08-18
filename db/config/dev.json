@@ -1,5 +1,6 @@
 {
     "MONGO_URI":"mongodb://localhost:27017/devDB",
     "PORT":"4002",
-    "HASH_SECRET_KEY":"devSecretKey"
+    "HASH_SECRET_KEY":"devSecretKey",
+    "MEETUPKEY":"<your meetup key>"
 }
