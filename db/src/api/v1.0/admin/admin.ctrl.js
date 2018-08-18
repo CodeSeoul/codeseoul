@@ -56,6 +56,7 @@ exports.login = async (req, res) => {
         const { user } = await Admin.authenticate()(username, password);
         
         if(user){
+            req.session.user = user;
             res.status(200).json({
                 success:true,
                 user
