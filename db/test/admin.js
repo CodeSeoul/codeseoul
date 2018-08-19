@@ -5,19 +5,20 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 let expect = chai.expect;
 chai.use(chaiHttp);
+const agent = chai.request.agent(server);
 
-describe.skip('Admins', () => {
+describe('Admins', () => {
     before((done) => {
-        Admin.drop(); // remove all admins
+        Admin.drop();
         done();
     })
-    beforeEach((done) => { //Before each test
+    beforeEach((done) => {
         done();
     });
 
     describe('/admin', () => {
         it('/exists/helow1 should tell admin helow1 not exists', (done) => {
-            chai.request(server)
+            agent
                 .get('/api/v1.0/admin/exists/name/helow1')
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -27,7 +28,7 @@ describe.skip('Admins', () => {
                 });
         });
         it('/register/local should add a new admin', (done) => {
-            chai.request(server)
+            agent
                 .post('/api/v1.0/admin/register/local')
                 .send({
                     "username": "helow1",
@@ -40,7 +41,7 @@ describe.skip('Admins', () => {
                 });
         });
         it('/exists/helow1 should tell admin helow1 now exists', (done) => {
-            chai.request(server)
+            agent
                 .get('/api/v1.0/admin/exists/name/helow1')
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -50,7 +51,7 @@ describe.skip('Admins', () => {
                 });
         });
         it('/login should fail with incorrect password', (done) => {
-            chai.request(server)
+            agent
                 .post('/api/v1.0/admin/login')
                 .send({
                     "username": "helow1",
@@ -64,7 +65,7 @@ describe.skip('Admins', () => {
                 });
         });
         it('/login should success with correct password', (done) => {
-            chai.request(server)
+            agent
                 .post('/api/v1.0/admin/login')
                 .send({
                     "username": "helow1",
