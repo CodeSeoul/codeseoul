@@ -1,61 +1,123 @@
-import React from 'react';
-import { ShowingEventsContainer, Events} from '../styles/ShowingEvents'
+import React from "react";
+import {
+  ShowingEventsContainer,
+  Events,
+  LoadMoreEvents,
+  CurrentEventsSection
+} from "../styles/ShowingEvents";
+import DetailedEventInfo from "../components/DetailedEventInfo";
+import Modal from "../components/Modal/Modal";
 
 class MeetupPage extends React.Component {
+  state = {
+    events: [],
+    numberOfEvents: 2,
+    show: false,
+    clickedEvent: null,
+    rsvps: []
+  };
 
-  state={
-    events : []
-  }
+  //Open Modal
+  ShowModal = (e, event) => {
+    let newShow = this.state.show;
+    this.setState({
+      clickedEvent: event
+    });
 
-  componentDidMount(){
+    //fetch attendees data
+    fetch(
+      `https://api.meetup.com/Learn-Teach-Code-Seoul/events/${event.id}/rsvps`
+    )
+      .then(res => res.json())
+      .then(rsvps => {
+        this.setState({
+          rsvps: rsvps,
+          show: !newShow
+        });
+      });
+    console.log(this.state);
+  };
 
+  //Close Modal
+  onClose = () => {
+    let newShow = this.state.show;
+    this.setState({
+      show: !newShow
+    });
+  };
+
+  ShowMoreEvents = e => {
+    e.preventDefault();
+    let newNumberOfEvents = this.state.numberOfEvents;
+    newNumberOfEvents = newNumberOfEvents + 3;
+    this.setState({
+      numberOfEvents: newNumberOfEvents
+    });
+  };
+
+  //fetch events data
+  componentDidMount() {
     fetch("https://api.meetup.com/Learn-Teach-Code-Seoul/events")
-    .then(res=>res.json())
-    .then(events=>{
-      this.setState({
-        events : events
-      })
-    })
+      .then(res => res.json())
+      .then(events => {
+        this.setState({
+          events: events
+        });
+      });
   }
 
-  render(){
-
-    const events = this.state.events.map(event=>
-      {
-        return event.status === 'upcoming' ?
-          <Events key={event.id}>
-            <div>
-              {event.group.name}
-            </div>
-            <div>
+  render() {
+    const events = this.state.events
+      .filter(event => event.status === "upcoming")
+      .map((event, index) => {
+        return (
+          <Events
+            className={
+              index < 3? '' :
+              index <= this.state.numberOfEvents ? "visible" : "invisible"
+            }
+            key={event.id}
+            onClick={e => this.ShowModal(e, event)}
+          >
+            <div className="groupName">{event.group.name}</div>
+            <div className="eventInfo">
               {event.name}
-              <br/>
-              {event.local_date} {event.local_time}
+              <br />
+              {new Date(event.time).toLocaleString("en-US", {
+                month: "short",
+                day: "numeric"
+              })}{" "}
+              {event.local_time}
             </div>
           </Events>
-         : null
-      }
-    )
+        );
+      });
 
-    return(
+    return (
       <React.Fragment>
         <header>Meetup page</header>
         {/* Creating an event */}
-        <section>
-          Create an event
-        </section>
+        <section>Create an event</section>
 
         {/* Showing current events */}
-        <section>
-          <div>
-            Current events
-          </div>
-          <ShowingEventsContainer>
-            {events}
-          </ShowingEventsContainer>
-        </section>
+        <CurrentEventsSection>
+          <div className="title">Current Events</div>
+          <ShowingEventsContainer>{events}</ShowingEventsContainer>
+          <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
+            More Events
+          </LoadMoreEvents>
+        </CurrentEventsSection>
+
+        {/* Modal */}
+
+        <Modal show={this.state.show} onClose={() => this.onClose()}>
+          <DetailedEventInfo
+            eventInfo={this.state.clickedEvent}
+            rsvps={this.state.rsvps}
+          />
+        </Modal>
       </React.Fragment>
-    )
+    );
   }
 }
 
