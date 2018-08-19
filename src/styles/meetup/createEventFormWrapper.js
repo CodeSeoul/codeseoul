@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { PrimaryColor, PrimaryFont } from '../variable';
+import { PrimaryColorLight, ThirdColor, PrimaryFont } from '../variable';
 
 let CreateEventFormWrapper = styled.div`
   width: 80%;
   margin: 0 auto;
-  background-color: ${PrimaryColor};
+  background-color: ${PrimaryColorLight};
   padding: 2rem 0.5rem;
   * {
     font-family: ${PrimaryFont};
@@ -85,7 +85,7 @@ const CreateEventButton = styled.button`
   width: 50%;
   margin: 1rem auto;
   color: white;
-  background-color: red;
+  background-color: ${ThirdColor};
   font-size: 2.5rem;
 `;
 CreateEventFormWrapper.EventDescription = EventDescription;

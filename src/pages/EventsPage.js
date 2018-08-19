@@ -38,7 +38,6 @@ class EventsPage extends React.Component {
           show: !newShow
         });
       });
-    console.log(this.state);
   };
 
   //Close Modal
