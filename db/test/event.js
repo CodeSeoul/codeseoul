@@ -31,4 +31,15 @@ describe('event api', () => {
                 done();
             });
     });
+
+    it('/event/meetup/me/groups get should return user groups', (done) => {
+        agent
+            .get(`/api/v1.0/event/meetup/me/groups?page=2&sign=true&key=${config.MEETUPKEY}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.be.an('object');
+                expect(JSON.parse(res.body.data)).length.to.be.within(1,2);
+                done();
+            });
+    });
 });
