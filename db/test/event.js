@@ -6,6 +6,9 @@ let should = chai.should();
 let expect = chai.expect;
 chai.use(chaiHttp);
 const agent = chai.request.agent(server);
+if(config.MEETUPKEY === '<your meetup key>'){
+    console.warn('WARNING: change meetup key in config file to get correct test result!');
+}
 
 describe('event api', () => {
     //TODO: separate tests which not needs auth
