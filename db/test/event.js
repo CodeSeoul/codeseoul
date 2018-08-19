@@ -8,6 +8,31 @@ chai.use(chaiHttp);
 const agent = chai.request.agent(server);
 
 describe('event api', () => {
+    //TODO: separate tests which not needs auth
+    before((done)=>{
+        agent
+            .post('/api/v1.0/admin/register/local')
+            .send({
+                "username": "helow1",
+                "password": "asdasd"
+            })
+            .end((err, res) => {
+            });
+        agent
+            .post('/api/v1.0/admin/login')
+            .send({
+                "username": "helow1",
+                "password": "asdasd"
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.be.an('object');
+                expect(res.body.success).to.equal(true);
+                user = res.body.user;
+                
+                done();
+            });
+    })
 
     it('/event/meetup/events get should return meetup event data', (done) => {
         agent
