@@ -70,3 +70,13 @@ exports.login = async (req, res) => {
         res.status(500).json({error: e});
     }
 }
+
+exports.myInfo = async (req, res) => {
+    try {
+        const { user } = req.session;
+        res.status(200).json({user});
+    } catch(e){
+        console.log(e);
+        res.status(500).json({error: e});
+    }
+}
