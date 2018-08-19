@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as style from '../variable';
+import * as style from '../../variable';
 
 let Header = styled.header`
   text-align: center;

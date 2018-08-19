@@ -5,7 +5,7 @@ import {
   LoadMoreEvents,
   CurrentEventsSection
 } from '../styles/ShowingEvents';
-import Header from '../styles/meetup/header';
+import EventsPageWrapper from '../styles/pages/eventsPage';
 import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
 import ToggleDisplay from '../components/helper/ToggleDisplay';
 
@@ -69,6 +69,7 @@ class EventsPage extends React.Component {
   }
 
   render() {
+    const { Header } = EventsPageWrapper;
     const events = this.state.events
       .filter(event => event.status === 'upcoming')
       .map((event, index) => {
@@ -99,32 +100,34 @@ class EventsPage extends React.Component {
       });
 
     return (
-      <React.Fragment>
-        <Header>Meetup page</Header>
-        {/* Creating an event */}
-        <section>
-          <ToggleDisplay buttonText="Create New Event">
-            <CreateEventFormContainer />
-          </ToggleDisplay>
-        </section>
-        {/* Showing current events */}
-        <CurrentEventsSection>
-          <div className="title">Current Events</div>
-          <ShowingEventsContainer>{events}</ShowingEventsContainer>
-          <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
-            More Events
-          </LoadMoreEvents>
-        </CurrentEventsSection>
+      <EventsPageWrapper>
+        <React.Fragment>
+          <Header>Meetup page</Header>
+          {/* Creating an event */}
+          <section>
+            <ToggleDisplay buttonText="Create New Event">
+              <CreateEventFormContainer />
+            </ToggleDisplay>
+          </section>
+          {/* Showing current events */}
+          <CurrentEventsSection>
+            <div className="title">Current Events</div>
+            <ShowingEventsContainer>{events}</ShowingEventsContainer>
+            <LoadMoreEvents onClick={e => this.ShowMoreEvents(e)}>
+              More Events
+            </LoadMoreEvents>
+          </CurrentEventsSection>
 
-        {/* Modal */}
+          {/* Modal */}
 
-        <Modal show={this.state.show} onClose={() => this.onClose()}>
-          <DetailedEventInfo
-            eventInfo={this.state.clickedEvent}
-            rsvps={this.state.rsvps}
-          />
-        </Modal>
-      </React.Fragment>
+          <Modal show={this.state.show} onClose={() => this.onClose()}>
+            <DetailedEventInfo
+              eventInfo={this.state.clickedEvent}
+              rsvps={this.state.rsvps}
+            />
+          </Modal>
+        </React.Fragment>
+      </EventsPageWrapper>
     );
   }
 }
