@@ -5,6 +5,7 @@ import {
   LoadMoreEvents,
   CurrentEventsSection
 } from '../styles/ShowingEvents';
+import Header from '../styles/meetup/header';
 import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
 import ToggleDisplay from '../components/helper/ToggleDisplay';
 
@@ -99,7 +100,7 @@ class EventsPage extends React.Component {
 
     return (
       <React.Fragment>
-        <header>Meetup page</header>
+        <Header>Meetup page</Header>
         {/* Creating an event */}
         <section>
           <ToggleDisplay buttonText="Create New Event">
