@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import EventsPage from '../pages/EventsPage';
+import AdminLoginPage from '../pages/AdminLoginPage'
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
@@ -13,6 +14,7 @@ const PrimaryLayout = () => (
       <Route path="/events" component={EventsPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/adminLogin" component={AdminLoginPage} />
     </main>
   </div>
 );
