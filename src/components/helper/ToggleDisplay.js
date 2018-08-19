@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ShowContentBtn from '../../styles/helpers/ShowContentBtn';
 class ToggleDisplay extends React.Component {
   state = { show: false };
 
@@ -15,7 +15,7 @@ class ToggleDisplay extends React.Component {
       handleToggle: this.handleToggle
     });
     let content = !this.state.show ? (
-      <button onClick={this.handleToggle}>{buttonText}</button>
+      <ShowContentBtn onClick={this.handleToggle}>{buttonText}</ShowContentBtn>
     ) : (
       childrenWithHander
     );
