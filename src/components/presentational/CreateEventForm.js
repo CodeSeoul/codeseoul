@@ -1,11 +1,12 @@
 import React from 'react';
 import CreateEventFormWrapper from '../../styles/meetup/createEventFormWrapper';
 const CreateEventForm = props => {
-  const { onChangeHandler, createEvent, event } = props;
+  const { onChangeHandler, createEvent, event, closeForm } = props;
   const { EventDescription, CreateEventButton } = CreateEventFormWrapper;
   const { name, description, directions, startTime, endTime } = event;
   return (
     <CreateEventFormWrapper id="create-event-form">
+      <button onClick={closeForm}>X</button>
       <form>
         <input
           name="name"

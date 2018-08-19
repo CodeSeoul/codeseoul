@@ -80,6 +80,7 @@ class CreateEventFormContainer extends React.Component {
         onChangeHandler={this.onChangeHandler}
         createEvent={this.createEvent}
         event={this.state.eventData}
+        closeForm={this.props.handleToggle}
       />
     );
   }
