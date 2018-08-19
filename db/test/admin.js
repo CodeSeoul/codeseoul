@@ -75,6 +75,18 @@ describe('Admins', () => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');
                     expect(res.body.success).to.equal(true);
+                    user = res.body.user;
+                    
+                    done();
+                });
+        });
+        it('/me/info should success after login', (done) => {
+            agent
+                .get('/api/v1.0/admin/me/info')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.user.username).to.be.string('helow1');
                     done();
                 });
         });
