@@ -28,7 +28,8 @@ class AdminLoginPage extends React.Component {
 			id: '',
 			pw: ''
 		},
-		isAuthenticated: false
+		isAuthenticated: false,
+		user: 'null'
 	}
 
 	register(cb) {
@@ -51,9 +52,11 @@ class AdminLoginPage extends React.Component {
 			, {username:id,password:pw}
 			, {credentials:'include'})
 		.then(res=>{
-			this.setState({isAuthenticated:true});
-			if(typeof cb === 'function')
-				cb(res);
+			if(res.status >= 200 && res.status < 300){
+				this.setState({isAuthenticated:true});
+				if(typeof cb === 'function')
+					cb(res);
+			}
 		})
 		.catch((err) => {
 			console.log('Error fetching authorized user:' + err);
@@ -63,7 +66,7 @@ class AdminLoginPage extends React.Component {
 	logout(cb) {
 		getJSON(`/admin/logout`, {credentials:'include'})
 		.then(res=>{
-			this.setState({isAuthenticated:false});
+			this.setState({isAuthenticated:true});
 			if(typeof cb === 'function')
 				cb(true);
 		})
@@ -81,6 +84,9 @@ class AdminLoginPage extends React.Component {
 		, {credentials:'include'})
 		.then(res=>{
 			if(res.status >= 200 && res.status < 300){
+				res.json().then(e=>{
+					this.setState({user: e.user});
+				});
 				this.setState({isAuthenticated:true});
 			} else {
 				this.setState({isAuthenticated:false});
@@ -116,7 +122,9 @@ class AdminLoginPage extends React.Component {
 	render = () => {
 		return (
 			<div>
-				<div>Authenticated? : </div><p>{this.state.isAuthenticated.toString()}</p>
+				<div>Authenticated User : {this.state.isAuthenticated
+					? this.state.user.username
+					: 'not authenticated'}</div>
 				<form>
 					<input type='text' onChange={(e)=>this.handleInputChange(e,'id')} placeholder='username'/>
 					<input type='password' onChange={(e)=>this.handleInputChange(e,'pw')} placeholder='password'/>
