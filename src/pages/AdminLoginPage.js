@@ -27,6 +27,49 @@ class AdminLoginPage extends React.Component {
 		isAuthenticated: false
 	}
 
+	register(cb) {
+		postJSON(`/admin/register/local`
+			, {username:'helow1',password:'asd'})
+		.then(res=>{
+			this.setState({isAuthenticated:true});
+			if(typeof cb === 'function')
+				cb(res.json().user);
+		})
+		.catch((err) => {
+			console.log('Error registering user:' + err);
+		});
+	}
+
+	login(cb) {
+		postJSON(`/admin/login`
+			, {username:'helow1',password:'asd'}
+			, {credentials:'include'})
+		.then(res=>{
+			this.setState({isAuthenticated:true});
+			if(typeof cb === 'function')
+				cb(res);
+		})
+		.catch((err) => {
+			console.log('Error fetching authorized user:' + err);
+		});
+	}
+
+	logout(cb) {
+		getJSON(`/admin/logout`, {credentials:'include'})
+		.then(res=>{
+			this.setState({isAuthenticated:false});
+			if(typeof cb === 'function')
+				cb(true);
+		})
+		.catch((err) => {
+			console.log('Error logging out user.');
+			if (typeof cb === 'function') {
+				// user was not logged out
+				cb(true);
+			}
+		});
+	}
+	
 	checkAuth(cb) {
 		getJSON(`/admin/me/info`
 		, {credentials:'include'})
@@ -53,6 +96,9 @@ class AdminLoginPage extends React.Component {
 		return (
 			<div>
 				<div>Authenticated? : </div><p>{this.state.isAuthenticated.toString()}</p>
+				<button onClick={(e)=>this.register()}>Register</button>
+				<button onClick={(e)=>this.login()}>Login</button>
+				<button onClick={(e)=>this.logout()}>Logout</button>
 				<button onClick={(e)=>this.checkAuth()}>CheckAuth</button>
 		
 			</div>
