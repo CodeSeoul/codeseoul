@@ -3,7 +3,7 @@ import { ShowingEventsContainer, Events } from '../styles/ShowingEvents';
 import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
 import ToggleDisplay from '../components/helper/ToggleDisplay';
 
-class MeetupPage extends React.Component {
+class EventsPage extends React.Component {
   state = {
     events: []
   };
@@ -50,4 +50,4 @@ class MeetupPage extends React.Component {
   }
 }
 
-export default MeetupPage;
+export default EventsPage;
