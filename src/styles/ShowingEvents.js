@@ -90,7 +90,7 @@ const DetailedEventInfoStyle = styled.div`
   }
   .image-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
     text-align: center;
