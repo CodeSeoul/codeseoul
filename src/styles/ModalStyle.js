@@ -26,7 +26,7 @@ const ModalCloseButton = styled.div`
   border: none;
   position: absolute;
   left: 95%;
-  top: 3%;
+  top: 1.5%;
   :hover {
     cursor: pointer;
   }

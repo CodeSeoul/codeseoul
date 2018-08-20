@@ -18,6 +18,7 @@ class Modal extends React.Component {
             <ModalCloseButton>
               <FontAwesomeIcon
                 icon={faTimesCircle}
+                size='lg'
                 onClick={() => this.props.onClose()}
               />
             </ModalCloseButton>
