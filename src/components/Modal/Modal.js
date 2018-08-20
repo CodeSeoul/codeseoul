@@ -1,5 +1,11 @@
 import React from "react";
-import { ModalBackdrop, ModalContent, ModalCloseButton } from "../../styles/ModalStyle";
+import {
+  ModalBackdrop,
+  ModalContent,
+  ModalCloseButton
+} from "../../styles/ModalStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Modal extends React.Component {
   render() {
@@ -9,7 +15,12 @@ class Modal extends React.Component {
       return (
         <ModalBackdrop>
           <ModalContent>
-          <ModalCloseButton onClick={() => this.props.onClose()}>Close</ModalCloseButton>
+            <ModalCloseButton>
+              <FontAwesomeIcon
+                icon={faTimesCircle}
+                onClick={() => this.props.onClose()}
+              />
+            </ModalCloseButton>
             {this.props.children}
           </ModalContent>
         </ModalBackdrop>
