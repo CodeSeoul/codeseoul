@@ -87,7 +87,7 @@ const DetailedEventInfoStyle = styled.div`
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     line-height : 1.3;
   }
