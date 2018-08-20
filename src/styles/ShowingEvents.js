@@ -22,7 +22,7 @@ const CurrentEventsSection = styled.section`
 
 const ShowingEventsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
   grid-auto-rows: minmax(5rem, auto);
 
   .visible {
@@ -70,6 +70,7 @@ const LoadMoreEvents = styled.button`
   border: none;
   font-size: 1.1rem;
   width: 20%;
+  min-width : 15rem;
   :hover {
     background-color: ${style.ThirdColor};
     cursor : pointer;
