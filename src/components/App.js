@@ -1,31 +1,30 @@
 import React from 'react';
-import baseStyles from '../styles/base-styles'
-import { BrowserRouter, Route } from 'react-router-dom'
-import HomePage from '../pages/HomePage'
-import AboutPage from '../pages/AboutPage'
-import ContactPage from '../pages/ContactPage'
-import MeetupPage from '../pages/MeetupPage'
+import baseStyles from '../styles/base-styles';
+import { BrowserRouter, Route } from 'react-router-dom';
+import HomePage from '../pages/HomePage';
+import AboutPage from '../pages/AboutPage';
+import ContactPage from '../pages/ContactPage';
+import EventsPage from '../pages/EventsPage';
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
     <main>
       <Route path="/" exact component={HomePage} />
-      <Route path="/meetups" component={MeetupPage} />
+      <Route path="/events" component={EventsPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
     </main>
   </div>
-)
-
+);
 
 const App = () => {
-  baseStyles()
+  baseStyles();
   return (
     <BrowserRouter>
       <PrimaryLayout />
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;
 
