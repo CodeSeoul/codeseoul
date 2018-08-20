@@ -46,7 +46,7 @@ const Events = styled.div`
     cursor : pointer;
   }
 
-  .groupName {
+  .eventName {
     background-color: ${style.PrimaryColor};
     color: white;
     text-align: center;

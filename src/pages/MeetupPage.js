@@ -79,15 +79,15 @@ class MeetupPage extends React.Component {
             key={event.id}
             onClick={e => this.ShowModal(e, event)}
           >
-            <div className="groupName">{event.group.name}</div>
+            <div className="eventName">{event.name}</div>
             <div className="eventInfo">
-              {event.name}
-              <br />
               {new Date(event.time).toLocaleString("en-US", {
                 month: "short",
                 day: "numeric"
               })}{", "}
               {event.local_time}
+              <br/>
+              {event.venue.address_1}
             </div>
           </Events>
         );
