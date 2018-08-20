@@ -79,11 +79,12 @@ const LoadMoreEvents = styled.button`
 
 const DetailedEventInfoStyle = styled.div`
   font-size: 1.2rem;
-  line-height: 2;
+  line-height: 2.5rem;
 
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
+    line-height : 1.3;
   }
   h2 {
     font-size: 1.5rem;
@@ -91,7 +92,7 @@ const DetailedEventInfoStyle = styled.div`
   }
   .image-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
     text-align: center;
