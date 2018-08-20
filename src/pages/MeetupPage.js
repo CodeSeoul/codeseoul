@@ -86,7 +86,7 @@ class MeetupPage extends React.Component {
               {new Date(event.time).toLocaleString("en-US", {
                 month: "short",
                 day: "numeric"
-              })}{" "}
+              })}{", "}
               {event.local_time}
             </div>
           </Events>
