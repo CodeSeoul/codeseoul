@@ -1,5 +1,6 @@
 import React from 'react';
 import { } from '../styles/LoginPageStyle';
+import LoginForm from '../components/presentational/LoginForm';
 
 const postJSON = (route, data, options = {}) => {
   return fetch(`http://localhost:4002/api/v1.0${route}`, {
