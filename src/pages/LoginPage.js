@@ -22,16 +22,16 @@ const getJSON = (route, options = {}) => {
   });
 };
 
-class AdminLoginPage extends React.Component {
-  state = {
-    formInput: {
-      id: '',
-      pw: ''
-    },
-    isAuthenticated: false,
-    user: 'null'
-  };
-
+class LoginPage extends React.Component {
+	state = {
+		formInput:{
+			id: '',
+			pw: ''
+		},
+		isAuthenticated: false,
+		user: 'null'
+  }
+  
   register(cb) {
     console.log('registering');
     const { id, pw } = this.state.formInput;
@@ -150,4 +150,4 @@ class AdminLoginPage extends React.Component {
   };
 }
 
-export default AdminLoginPage;
+export default LoginPage;
