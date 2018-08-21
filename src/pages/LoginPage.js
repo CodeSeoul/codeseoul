@@ -120,36 +120,14 @@ class LoginPage extends React.Component {
     this.setState({ formInput: nextInput });
   }
 
-  render = () => {
-    return (
-      <div>
-        <div>
-          Authenticated User :{' '}
-          {this.state.isAuthenticated
-            ? this.state.user.username
-            : 'not authenticated'}
-        </div>
-        <form>
-          <input
-            type="text"
-            onChange={e => this.handleInputChange(e, 'id')}
-            placeholder="username"
-          />
-          <input
-            type="password"
-            onChange={e => this.handleInputChange(e, 'pw')}
-            placeholder="password"
-          />
-        </form>
-        <div>{this.state.formInput.id}</div>
-        <div>{this.state.formInput.pw}</div>
-        <button onClick={e => this.register()}>Register</button>
-        <button onClick={e => this.login()}>Login</button>
-        <button onClick={e => this.logout()}>Logout</button>
-        <button onClick={e => this.checkAuth()}>CheckAuth</button>
-      </div>
-    );
-  };
+	render = () => {
+		return (
+			<LoginForm 
+				states={this.state}
+				functions={this.functions}
+				/>
+		)
+	}
 }
 
 export default LoginPage;
