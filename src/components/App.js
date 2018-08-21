@@ -14,7 +14,7 @@ const PrimaryLayout = () => (
       <Route path="/events" component={EventsPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
-      <Route path="/adminLogin" component={LoginPage} />
+      <Route path="/login" component={LoginPage} />
     </main>
   </div>
 );
