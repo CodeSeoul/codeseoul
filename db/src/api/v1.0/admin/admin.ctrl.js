@@ -25,7 +25,7 @@ exports.checkName = async (req, res) => {
 
 exports.register = async (req, res) => {
     const { body } = req;
-    const { username, password } = body;
+    const { username, password, role } = body;
     try{
         const exists = await Admin.findByUserName(username);
         if(exists){
@@ -33,8 +33,7 @@ exports.register = async (req, res) => {
             return;
         }
 
-        let admin = new Admin({username});
- 
+        let admin = new Admin({username, role});
         admin = await Admin.register(
             admin,
             password

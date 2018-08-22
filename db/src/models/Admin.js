@@ -14,7 +14,8 @@ const {
 const Admin = new Schema({
     username: String,
     email: String,
-    password: String
+    password: String,
+    role: String
 })
 
 Admin.plugin(passportLocalMongoose);

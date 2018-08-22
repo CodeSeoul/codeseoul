@@ -31,8 +31,9 @@ describe('Admins', () => {
             agent
                 .post('/api/v1.0/admin/register/local')
                 .send({
-                    "username": "helow1",
-                    "password": "asdasd"
+                    'username': 'helow1',
+                    'password': 'asdasdasd',
+                    'role': 'admin', 
                 })
                 .end((err, res) => {
                     res.should.have.status(201);
