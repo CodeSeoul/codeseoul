@@ -1,13 +1,13 @@
 const Admin = require('models/Admin');
 const passport = require('passport');
 
-exports.checkName = async (ctx, res) => {
+exports.checkName = async (req, res) => {
     const {
         name
-    } = ctx.params;
+    } = req.params;
 
     if (!name) {
-        ctx.status = 400;
+        req.status = 400;
         return;
     }
 
