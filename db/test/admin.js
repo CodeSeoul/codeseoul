@@ -60,7 +60,6 @@ describe('Admins', () => {
                 .end((err, res) => {
                     res.should.have.status(401);
                     expect(res.body).to.be.an('object');
-                    expect(res.body.success).to.equal(false);
                     done();
                 });
         });
@@ -74,7 +73,6 @@ describe('Admins', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');
-                    expect(res.body.success).to.equal(true);
                     user = res.body.user;
                     
                     done();
