@@ -1,4 +1,5 @@
 const Admin = require('models/Admin');
+const passport = require('passport');
 
 exports.checkName = async (ctx, res) => {
     const {
@@ -50,21 +51,27 @@ exports.register = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-    const { body } = req;
-    const { username, password } = body;
     try{
-        const { user } = await Admin.authenticate()(username, password);
-        
-        if(user){
-            res.status(200).json({
-                success:true,
-                user
-            });
-        } else{
-            res.status(401).json({success:false});
-        }
-
+        req.session.save((err)=>{
+            if(err) throw(err);
+            res.status(200).send('OK');
+        })
     } catch (e) {
+        console.log(e);
+        res.status(500).json({error: e});
+    }
+}
+
+exports.logout = async (req, res, next) => {
+    req.logout();
+    return res.redirect('/');
+}
+
+exports.myInfo = async (req, res) => {
+    try {
+        const { user } = req;
+        res.status(200).json({user});
+    } catch(e){
         console.log(e);
         res.status(500).json({error: e});
     }
