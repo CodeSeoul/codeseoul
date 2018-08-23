@@ -31,7 +31,6 @@ let CreateEventFormWrapper = styled.div`
     }
     label {
       height: auto;
-      width: 45%;
       margin: 2rem auto;
       padding: 0.4rem;
       box-sizing: border-box;
@@ -39,7 +38,7 @@ let CreateEventFormWrapper = styled.div`
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       border-radius: 3px;
       background-color: white;
     }
