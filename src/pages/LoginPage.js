@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
   register(cb) {
     console.log('registering');
     const { id, pw } = this.state.formInput;
-    postJSON(`/admin/register/local`, { username: id, password: pw })
+    postJSON(`/user/register/local`, { username: id, password: pw })
       .then(res => {
         console.log('registered');
         this.setState({ isAuthenticated: true });
@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
 	functions = {
 		register: (cb) => {
 			const {id, pw} = this.state.formInput;
-			postJSON(`/admin/register/local`
+			postJSON(`/user/register/local`
 				, {username:id,password:pw})
 			.then(res=>{
 				this.setState({isAuthenticated:true});
@@ -66,7 +66,7 @@ class LoginPage extends React.Component {
 		login: (cb) => {
 			const { id, pw } = this.state.formInput;
 			postJSON(
-				`/admin/login`,
+				`/user/login`,
 				{ username: id, password: pw },
 				{ credentials: 'include' }
 			)
@@ -82,7 +82,7 @@ class LoginPage extends React.Component {
 		},
 	
 		logout: (cb) => {
-			getJSON(`/admin/logout`, { credentials: 'include' })
+			getJSON(`/user/logout`, { credentials: 'include' })
 				.then(res => {
 					this.setState({ isAuthenticated: true });
 					if (typeof cb === 'function') cb(true);
@@ -97,7 +97,7 @@ class LoginPage extends React.Component {
 		},
 		
 		checkAuth: (cb) => {
-			getJSON(`/admin/me/info`, { credentials: 'include' })
+			getJSON(`/user/me/info`, { credentials: 'include' })
 				.then(res => {
 					if (res.status >= 200 && res.status < 300) {
 						res.json().then(e => {

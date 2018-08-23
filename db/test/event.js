@@ -14,7 +14,7 @@ describe('event api', () => {
     //TODO: separate tests which not needs auth
     before((done)=>{
         agent
-            .post('/api/v1.0/admin/register/local')
+            .post('/api/v1.0/user/register/local')
             .send({
                 "username": "helow1",
                 "password": "asdasdasd"
@@ -22,7 +22,7 @@ describe('event api', () => {
             .end((err, res) => {
             });
         agent
-            .post('/api/v1.0/admin/login')
+            .post('/api/v1.0/user/login')
             .send({
                 "username": "helow1",
                 "password": "asdasdasd"

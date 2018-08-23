@@ -6,12 +6,12 @@ const config = require('config');
 function hash(password) {
     return crypto.createHmac('sha256', config.HASH_SECRET_KEY).update(password).digest('hex');
 }
-
+ 
 const {
     Schema
 } = mongoose;
 
-const Admin = new Schema({
+const User = new Schema({
     username: {
         type:String,
         minlength:[3, 'Too short username'],
@@ -22,16 +22,16 @@ const Admin = new Schema({
     role: String
 })
 
-Admin.plugin(passportLocalMongoose);
+User.plugin(passportLocalMongoose);
 
-Admin.statics.findByUserName = function (username) {
+User.statics.findByUserName = function (username) {
     return this.findOne({
         username
     }).exec();
 }
 
-Admin.statics.drop = function () {
+User.statics.drop = function () {
     return this.remove({}).exec();
 };
 
-module.exports = mongoose.models.Admin || mongoose.model('Admin', Admin);
+module.exports = mongoose.models.User || mongoose.model('User', User);

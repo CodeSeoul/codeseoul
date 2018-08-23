@@ -1,4 +1,4 @@
-const Admin = require('models/Admin');
+const User = require('models/User');
 const passport = require('passport');
 
 exports.checkName = async (req, res) => {
@@ -12,7 +12,7 @@ exports.checkName = async (req, res) => {
     }
 
     try {
-        const account = await Admin.findByUserName(name);
+        const account = await User.findByUserName(name);
         res.send({
             exists: !!account
         });
@@ -36,22 +36,22 @@ exports.register = async (req, res) => {
             throw error;
         }
 
-        const exists = await Admin.findByUserName(username);
+        const exists = await User.findByUserName(username);
         if(exists){
             res.status(409).json({conflict:'username', username});
             return;
         }
         
-        let admin = new Admin({username, role});
-        admin.validateSync();
-        admin = await Admin.register(
-            admin,
+        let user = new User({username, role});
+        user.validateSync();
+        user = await User.register(
+            user,
             password
         );
         
         res.status(201).json({
             username,
-            _id: admin._id
+            _id: user._id
         });
     } catch (err) {
         if(err.name == 'ValidationError'){

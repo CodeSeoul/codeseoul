@@ -3,7 +3,7 @@ const app = express()
 const mdb = require('./models');
 const api = require('./api');
 const passport = require('passport');
-const Admin = require('models/Admin');
+const User = require('models/User');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
@@ -23,9 +23,9 @@ app.use(session({
 app.use(cookieParser());
 app.use(passport.initialize());
 
-passport.use(Admin.createStrategy());
-passport.serializeUser(Admin.serializeUser());
-passport.deserializeUser(Admin.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 app.use(passport.session());
 
 if(config.ENV == 'development'){

@@ -18,7 +18,7 @@ class IsAdmin extends React.Component {
     user: ''
   };
   checkAuth() {
-    getJSON(`/admin/me/info`, { credentials: 'include' })
+    getJSON(`/user/me/info`, { credentials: 'include' })
       .then(res => {
         if (res.status >= 200 && res.status < 300) {
           res.json().then(e => {
