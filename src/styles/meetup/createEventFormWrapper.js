@@ -4,10 +4,14 @@ import { PrimaryColorLight, ThirdColor, PrimaryFont } from '../variable';
 let CreateEventFormWrapper = styled.div`
   width: 80%;
   margin: 0 auto;
-  background-color: ${PrimaryColorLight};
   padding: 2rem 0.5rem;
+  text-align: left;
+  background-color: ${PrimaryColorLight};
   * {
     font-family: ${PrimaryFont};
+  }
+  > button {
+    margin: 0 2rem;
   }
   form {
     display: flex;
