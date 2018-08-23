@@ -1,25 +1,25 @@
-let Admin = require('models/Admin');
+let User = require('models/User');
 
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let should = chai.should();
-let expect = chai.expect;
-chai.use(chaiHttp);
+// let chai = require('chai');
+// let chaiHttp = require('chai-http');
+// let should = chai.should();
+// let expect = chai.expect;
+// chai.use(chaiHttp);
 const agent = chai.request.agent(server);
 
-describe('Admins', () => {
+describe('Users', () => {
     before((done) => {
-        Admin.drop();
+        User.drop();
         done();
     })
     beforeEach((done) => {
         done();
     });
 
-    describe('/admin', () => {
-        it('/exists/helow1 should tell admin helow1 not exists', (done) => {
+    describe('/user', () => {
+        it('/exists/helow1 should tell user helow1 not exists', (done) => {
             agent
-                .get('/api/v1.0/admin/exists/name/helow1')
+                .get('/api/v1.0/user/exists/name/helow1')
                 .end((err, res) => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');
@@ -29,7 +29,7 @@ describe('Admins', () => {
         });
         it('/register/local should fail with invalid password', (done) => {
             agent
-                .post('/api/v1.0/admin/register/local')
+                .post('/api/v1.0/user/register/local')
                 .send({
                     'username': 'helow1',
                     'password': 'asdasd',
@@ -41,9 +41,9 @@ describe('Admins', () => {
                     done();
                 });
         });
-        it('/register/local should add a new admin', (done) => {
+        it('/register/local should add a new user', (done) => {
             agent
-                .post('/api/v1.0/admin/register/local')
+                .post('/api/v1.0/user/register/local')
                 .send({
                     'username': 'helow1',
                     'password': 'asdasdasd',
@@ -59,9 +59,9 @@ describe('Admins', () => {
                     done();
                 });
         });
-        it('/exists/helow1 should tell admin helow1 now exists', (done) => {
+        it('/exists/helow1 should tell user helow1 now exists', (done) => {
             agent
-                .get('/api/v1.0/admin/exists/name/helow1')
+                .get('/api/v1.0/user/exists/name/helow1')
                 .end((err, res) => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');
@@ -71,7 +71,7 @@ describe('Admins', () => {
         });
         it('/login should fail with incorrect password', (done) => {
             agent
-                .post('/api/v1.0/admin/login')
+                .post('/api/v1.0/user/login')
                 .send({
                     "username": "helow1",
                     "password": "asdasd2"
@@ -84,7 +84,7 @@ describe('Admins', () => {
         });
         it('/login should success with correct password', (done) => {
             agent
-                .post('/api/v1.0/admin/login')
+                .post('/api/v1.0/user/login')
                 .send({
                     "username": "helow1",
                     "password": "asdasdasd"
@@ -99,7 +99,7 @@ describe('Admins', () => {
         });
         it('/me/info should success after login', (done) => {
             agent
-                .get('/api/v1.0/admin/me/info')
+                .get('/api/v1.0/user/me/info')
                 .end((err, res) => {
                     res.should.have.status(200);
                     expect(res.body).to.be.an('object');
