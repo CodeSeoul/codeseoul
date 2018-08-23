@@ -38,16 +38,11 @@ class IsAdmin extends React.Component {
     this.checkAuth();
   }
   render() {
-    if (!this.state.isAuthenticated) {
-      return null;
-    }
     const { children } = this.props;
     const { isAuthenticated, user } = this.state;
     let childrenWithProps = React.Children.map(children, child => {
       return React.cloneElement(child, { isAuthenticated, user });
     });
-    console.log('this.state', this.state);
-    console.log('children', childrenWithProps);
     return childrenWithProps;
   }
 }
