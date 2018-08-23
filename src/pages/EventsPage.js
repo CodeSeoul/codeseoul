@@ -8,7 +8,7 @@ import {
 import EventsPageWrapper from '../styles/pages/eventsPage';
 import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
 import ToggleDisplay from '../components/helper/ToggleDisplay';
-
+import IsAdmin from '../components/helper/IsAdmin';
 import DetailedEventInfo from '../components/DetailedEventInfo';
 import Modal from '../components/Modal/Modal';
 
@@ -105,9 +105,11 @@ class EventsPage extends React.Component {
           <Header>Meetup page</Header>
           {/* Creating an event */}
           <section>
-            <ToggleDisplay buttonText="Create New Event">
-              <CreateEventFormContainer />
-            </ToggleDisplay>
+            <IsAdmin>
+              <ToggleDisplay buttonText="Create New Event">
+                <CreateEventFormContainer />
+              </ToggleDisplay>
+            </IsAdmin>
           </section>
           {/* Showing current events */}
           <CurrentEventsSection>
