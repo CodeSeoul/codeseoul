@@ -27,6 +27,20 @@ describe('Admins', () => {
                     done();
                 });
         });
+        it('/register/local should fail with invalid password', (done) => {
+            agent
+                .post('/api/v1.0/admin/register/local')
+                .send({
+                    'username': 'helow1',
+                    'password': 'asdasd',
+                    'role': 'admin', 
+                })
+                .end((err, res) => {
+                    res.should.have.status(400);
+                    expect(res.body).to.be.an('object');
+                    done();
+                });
+        });
         it('/register/local should add a new admin', (done) => {
             agent
                 .post('/api/v1.0/admin/register/local')
@@ -36,6 +50,10 @@ describe('Admins', () => {
                     'role': 'admin', 
                 })
                 .end((err, res) => {
+                    if(res.error) {
+                        console.log(res.error);
+                        done();
+                    }
                     res.should.have.status(201);
                     expect(res.body).to.be.an('object');
                     done();
@@ -69,7 +87,7 @@ describe('Admins', () => {
                 .post('/api/v1.0/admin/login')
                 .send({
                     "username": "helow1",
-                    "password": "asdasd"
+                    "password": "asdasdasd"
                 })
                 .end((err, res) => {
                     res.should.have.status(200);

@@ -27,13 +27,23 @@ exports.register = async (req, res) => {
     const { body } = req;
     const { username, password, role } = body;
     try{
+        let error = {};
+        if(password.length < 8){
+            error.name = 'ValidationError';
+            error.errors={
+                msg: 'Password is too short',
+            }
+            throw error;
+        }
+
         const exists = await Admin.findByUserName(username);
         if(exists){
             res.status(409).json({conflict:'username', username});
             return;
         }
-
+        
         let admin = new Admin({username, role});
+        admin.validateSync();
         admin = await Admin.register(
             admin,
             password
@@ -43,9 +53,17 @@ exports.register = async (req, res) => {
             username,
             _id: admin._id
         });
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({error: e});
+    } catch (err) {
+        if(err.name == 'ValidationError'){
+            for (field in err.errors) {
+                console.log(`Validation error : ${err.errors[field]}`)
+            }
+            res.status(400).json({error: err});
+        }
+        else{
+            console.log(err);
+            res.status(500).json({error: err});
+        }
     }
 }
 

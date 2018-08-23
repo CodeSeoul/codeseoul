@@ -17,7 +17,7 @@ describe('event api', () => {
             .post('/api/v1.0/admin/register/local')
             .send({
                 "username": "helow1",
-                "password": "asdasd"
+                "password": "asdasdasd"
             })
             .end((err, res) => {
             });
@@ -25,7 +25,7 @@ describe('event api', () => {
             .post('/api/v1.0/admin/login')
             .send({
                 "username": "helow1",
-                "password": "asdasd"
+                "password": "asdasdasd"
             })
             .end((err, res) => {
                 res.should.have.status(200);

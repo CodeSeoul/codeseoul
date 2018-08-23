@@ -3,7 +3,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const crypto = require('crypto');
 const config = require('config');
 
-function hash(password){
+function hash(password) {
     return crypto.createHmac('sha256', config.HASH_SECRET_KEY).update(password).digest('hex');
 }
 
@@ -12,7 +12,11 @@ const {
 } = mongoose;
 
 const Admin = new Schema({
-    username: String,
+    username: {
+        type:String,
+        minlength:[3, 'Too short username'],
+        required: [true, 'Username required']
+    },
     email: String,
     password: String,
     role: String
