@@ -18,11 +18,26 @@ const Form = styled.form`
 
 const FormInput = styled.input`
     display: flex;
-
+    width: 100%;
+    height: 60px;
+    margin: 6px;
+    padding: 1rem;
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    border: 2px solid gray;
+    color: ${style.PrimaryColor};
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: color box-shadow border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    :hover {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25), 0 3px 3px rgba(0, 0, 0, 0.22);
+    }
+    :focus{
+        color:${style.PrimaryColorLight};
+        border-color: ${style.PrimaryColorLight};
+    }
 `;
 
 const Button = styled.button`
-    display: flex;
     width: 250px;
 
 const Error = styled.div`
