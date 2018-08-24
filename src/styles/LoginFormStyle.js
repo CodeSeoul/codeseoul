@@ -39,6 +39,26 @@ const FormInput = styled.input`
 
 const Button = styled.button`
     width: 250px;
+    box-sizing: border-box;
+    background-color: #003049;
+    border: 1px solid #eae2b7;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    :hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25), 0 3px 3px rgba(0, 0, 0, 0.22);
+    }
+    :active{
+        transform: translate(0%,5%);
+    }
+`;
 
 const Error = styled.div`
     display: flex;
