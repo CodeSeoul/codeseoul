@@ -2,17 +2,18 @@ import styled from "styled-components";
 import * as style from "./variable";
 
 const LoginFormContainer = styled.div`
+    position: fixed;
     width: 60%;
-    background: ${style.FifthColor};
-`;
-
-const AuthStatus = styled.div`
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 
 const Form = styled.form`
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 
 const FormInput = styled.input`
