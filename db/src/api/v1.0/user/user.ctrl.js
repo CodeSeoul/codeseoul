@@ -29,6 +29,7 @@ exports.register = async (req, res) => {
     try{
         let error = {};
         if(password.length < 8){
+            error.status = 400;
             error.name = 'ValidationError';
             error.errors={
                 msg: 'Password is too short',
@@ -38,8 +39,12 @@ exports.register = async (req, res) => {
 
         const exists = await User.findByUserName(username);
         if(exists){
-            res.status(409).json({conflict:'username', username});
-            return;
+            error.status = 409;
+            error.name = 'ConflictError';
+            error.errors={
+                msg: 'username conflicts',
+            }
+            throw error;
         }
         
         let user = new User({username, role});
@@ -56,13 +61,19 @@ exports.register = async (req, res) => {
     } catch (err) {
         if(err.name == 'ValidationError'){
             for (field in err.errors) {
-                console.log(`Validation error : ${err.errors[field]}`)
+                console.log(`Validation : ${err.errors[field]}`)
             }
             res.status(400).json({err});
         }
+        if(err.name == 'ConflictError'){
+            for (field in err.errors) {
+                console.log(`ConflictError : ${err.errors[field]}`)
+            }
+            res.status(409).json({err});
+        }
         else{
             console.log(err);
-            res.status(500).json({err});
+            res.status(err.status || 500).json({err});
         }
     }
 }
