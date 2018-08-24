@@ -12,3 +12,4 @@ global.app = app;
 global.server = app.listen(config.PORT, () => {
     console.log(`server is running at port: ${config.PORT}`)
 });
+global.agent = chai.request.agent(server);

@@ -2,8 +2,8 @@ let chai = require('chai');
 let chaiHttp = require('chai-http');
 
 const config = require('config');
+let User = require('models/User');
 
-const agent = chai.request.agent(server);
 if(config.MEETUPKEY === '<your meetup key>'){
     console.warn('WARNING: change meetup key in config file to get correct test result!');
 }
@@ -11,27 +11,28 @@ if(config.MEETUPKEY === '<your meetup key>'){
 describe('event api', () => {
     //TODO: separate tests which not needs auth
     before((done)=>{
+        User.drop();
         agent
             .post('/api/v1.0/user/register/local')
             .send({
-                "username": "helow1",
-                "password": "asdasdasd"
+                'username': 'helow1',
+                'password': 'asdasdasd',
+                'role':'admin'
             })
             .end((err, res) => {
-            });
-        agent
-            .post('/api/v1.0/user/login')
-            .send({
-                "username": "helow1",
-                "password": "asdasdasd"
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                expect(res.body).to.be.an('object');
-                expect(res.body.success).to.equal(true);
-                user = res.body.user;
-                
-                done();
+                agent
+                .post('/api/v1.0/user/login')
+                .send({
+                    'username': 'helow1',
+                    'password': 'asdasdasd'
+                })
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    expect(res.body).to.be.an('object');
+                    user = res.body.user;
+                    
+                    done();
+                });
             });
     })
 

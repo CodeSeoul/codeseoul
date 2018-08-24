@@ -1,7 +1,5 @@
 let User = require('models/User');
 
-const agent = chai.request.agent(server);
-
 describe('Users', () => {
     before((done) => {
         User.drop();

@@ -1,7 +1,6 @@
 describe('Test api', () => {
-
     it('/testApi should return 418 im a teapot error', (done) => {
-        chai.request(server)
+        agent
             .get('/api/v1.0/testApi')
             .end((err, res) => {
                 res.should.have.status(418);
