@@ -1,10 +1,5 @@
 let User = require('models/User');
 
-// let chai = require('chai');
-// let chaiHttp = require('chai-http');
-// let should = chai.should();
-// let expect = chai.expect;
-// chai.use(chaiHttp);
 const agent = chai.request.agent(server);
 
 describe('Users', () => {
