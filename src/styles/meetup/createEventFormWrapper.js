@@ -4,10 +4,14 @@ import { PrimaryColorLight, ThirdColor, PrimaryFont } from '../variable';
 let CreateEventFormWrapper = styled.div`
   width: 80%;
   margin: 0 auto;
-  background-color: ${PrimaryColorLight};
   padding: 2rem 0.5rem;
+  text-align: left;
+  background-color: ${PrimaryColorLight};
   * {
     font-family: ${PrimaryFont};
+  }
+  > button {
+    margin: 0 2rem;
   }
   form {
     display: flex;
@@ -31,7 +35,6 @@ let CreateEventFormWrapper = styled.div`
     }
     label {
       height: auto;
-      width: 45%;
       margin: 2rem auto;
       padding: 0.4rem;
       box-sizing: border-box;
@@ -39,7 +42,7 @@ let CreateEventFormWrapper = styled.div`
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       border-radius: 3px;
       background-color: white;
     }
