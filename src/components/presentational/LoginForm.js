@@ -17,11 +17,10 @@ const LoginForm = (props) => {
                     onChange={e=>handleInputChange(e, 'pw')} 
                     placeholder='password'/>
             </Form>
-            <div>{formInput.id}</div>
-            <div>{formInput.pw}</div>
-            <Button onClick={(e)=>register()}>Register</Button>
-            <Button onClick={(e)=>login()}>Login</Button>
-            <Button onClick={(e)=>logout()}>Logout</Button>
+            <div style={{display:'flex'}}>
+                <Button hidden={isAuthenticated} onClick={(e)=>register()}>Register</Button>
+                <Button onClick={(e)=>{isAuthenticated? logout():login()}}>{isAuthenticated? 'Logout':'Login'}</Button>
+            </div>
             <Button onClick={(e)=>checkAuth()}>CheckAuth</Button>
         </LoginFormContainer>
     )
