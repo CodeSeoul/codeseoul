@@ -1,5 +1,5 @@
 import React from 'react';
-import { } from '../styles/LoginPageStyle';
+import { AuthStatus } from '../styles/LoginPageStyle';
 import LoginForm from '../components/presentational/LoginForm';
 
 const postJSON = (route, data, options = {}) => {
@@ -59,6 +59,7 @@ class LoginPage extends React.Component {
 			.then(data=>{
 				throwIfError(data);
 				this.setState({isAuthenticated:true});
+				this.setState({error:''});
 				if(typeof cb === 'function')
 					cb(data.user);
 			})
@@ -78,6 +79,7 @@ class LoginPage extends React.Component {
 				.then(res => {
 					if (res.status >= 200 && res.status < 300) {
 						this.setState({ isAuthenticated: true });
+						this.setState({error:''});
 						if (typeof cb === 'function') cb(res);
 					} else this.setState({error:'Login failed'});
 				})
@@ -91,6 +93,7 @@ class LoginPage extends React.Component {
 			getJSON(`/user/logout`, { credentials: 'include' })
 				.then(res => {
 					this.setState({ isAuthenticated: true });
+					this.setState({error:''});
 					if (typeof cb === 'function') cb(true);
 				})
 				.catch(err => {
@@ -110,6 +113,7 @@ class LoginPage extends React.Component {
 							this.setState({ user: e.user });
 						});
 						this.setState({ isAuthenticated: true });
+						this.setState({error:''});
 					} else {
 						if(!this.state.isAuthenticated)
 							this.setState({error:'You are not logged in'});
@@ -147,10 +151,17 @@ class LoginPage extends React.Component {
 	
 	render = () => {
 		return (
-			<LoginForm 
-				states={this.state}
-				functions={this.functions}
-				/>
+			<section>
+				<AuthStatus>Username : 
+					{this.state.isAuthenticated
+					? this.state.user.username
+					: 'not logged in'}
+				</AuthStatus>
+				<LoginForm 
+					states={this.state}
+					functions={this.functions}
+					/>
+			</section>
 		)
 	}
 }
