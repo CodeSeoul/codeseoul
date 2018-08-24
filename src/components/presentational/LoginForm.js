@@ -1,17 +1,12 @@
 import React from 'react';
-import { LoginFormContainer, AuthStatus, Form, FormInput, Button } from '../../styles/LoginFormStyle';
+import { LoginFormContainer, Form, FormInput, Button, Error } from '../../styles/LoginFormStyle';
 
 const LoginForm = (props) => {
     const { isAuthenticated, user, formInput, error } = props.states;
     const { handleInputChange, register, login, logout, checkAuth } = props.functions;
     return(
         <LoginFormContainer>
-            <AuthStatus>Authenticated User :{' '}
-                {isAuthenticated
-                    ? user.username
-                    : 'not authenticated'}
-            </AuthStatus>
-            <div>{error}</div>
+            <Error hidden={error==''?true:false}>{error}</Error>
             <Form>
                 <FormInput 
                     type='text' 

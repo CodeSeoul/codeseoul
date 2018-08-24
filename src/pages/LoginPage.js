@@ -92,7 +92,7 @@ class LoginPage extends React.Component {
 		logout: (cb) => {
 			getJSON(`/user/logout`, { credentials: 'include' })
 				.then(res => {
-					this.setState({ isAuthenticated: true });
+					this.setState({ isAuthenticated: false });
 					this.setState({error:''});
 					if (typeof cb === 'function') cb(true);
 				})
