@@ -24,6 +24,19 @@ const getJSON = (route, options = {}) => {
   });
 };
 
+const checkResponse = (res)=>{
+	if(res.status >= 200 && res.status < 300){
+		return;
+	}
+	else throw res;
+}
+
+const throwIfError = (res)=>{
+	if(!(res.status >= 200 && res.status < 300)){
+		throw res.err;
+	}
+}
+
 class LoginPage extends React.Component {
 	state = {
 		formInput:{
@@ -31,35 +44,27 @@ class LoginPage extends React.Component {
 			pw: ''
 		},
 		isAuthenticated: false,
-		user: 'null'
-  }
-  
-  register(cb) {
-    console.log('registering');
-    const { id, pw } = this.state.formInput;
-    postJSON(`/user/register/local`, { username: id, password: pw })
-      .then(res => {
-        console.log('registered');
-        this.setState({ isAuthenticated: true });
-        if (typeof cb === 'function') cb(res.json().user);
-      })
-      .catch(err => {
-        console.log('Error registering user:' + err);
-      });
-  }
+		user: 'null',
+		error: ''
+	}
 
 	functions = {
 		register: (cb) => {
-			const {id, pw} = this.state.formInput;
+			const { id, pw } = this.state.formInput;
 			postJSON(`/user/register/local`
 				, {username:id,password:pw})
 			.then(res=>{
+				return res.json();
+			})
+			.then(data=>{
+				throwIfError(data);
 				this.setState({isAuthenticated:true});
 				if(typeof cb === 'function')
-					cb(res.json().user);
+					cb(data.user);
 			})
 			.catch((err) => {
-				console.log('Error registering user:' + err);
+				console.log(err);
+				this.setState({error:'Error registering user:' + err.name});
 			});
 		},
 	
@@ -74,10 +79,11 @@ class LoginPage extends React.Component {
 					if (res.status >= 200 && res.status < 300) {
 						this.setState({ isAuthenticated: true });
 						if (typeof cb === 'function') cb(res);
-					}
+					} else this.setState({error:'Login failed'});
 				})
 				.catch(err => {
-					console.log('Error fetching authorized user:' + err);
+					console.log('Error while login:' + err);
+					this.setState({error:'Error while login'});
 				});
 		},
 	
@@ -105,6 +111,8 @@ class LoginPage extends React.Component {
 						});
 						this.setState({ isAuthenticated: true });
 					} else {
+						if(!this.state.isAuthenticated)
+							this.setState({error:'You are not logged in'});
 						this.setState({ isAuthenticated: false });
 					}
 					if (typeof cb === 'function') {
@@ -117,6 +125,7 @@ class LoginPage extends React.Component {
 					if (typeof cb === 'function') {
 						cb(false);
 					}
+					this.setState({error:'Error fetching authorized user:' + err});
 				});
 		},
 	
