@@ -58,11 +58,11 @@ exports.register = async (req, res) => {
             for (field in err.errors) {
                 console.log(`Validation error : ${err.errors[field]}`)
             }
-            res.status(400).json({error: err});
+            res.status(400).json({err});
         }
         else{
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).json({err});
         }
     }
 }
@@ -75,7 +75,7 @@ exports.login = async (req, res) => {
         })
     } catch (e) {
         console.log(e);
-        res.status(500).json({error: e});
+        res.status(500).json({e});
     }
 }
 
@@ -90,6 +90,6 @@ exports.myInfo = async (req, res) => {
         res.status(200).json({user});
     } catch(e){
         console.log(e);
-        res.status(500).json({error: e});
+        res.status(500).json({e});
     }
 }
