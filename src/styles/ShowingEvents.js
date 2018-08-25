@@ -76,8 +76,13 @@ const LoadMoreEvents = styled.button`
 `;
 
 const DetailedEventInfoStyle = styled.div`
-  font-size: 1.2rem;
   line-height: 2.5rem;
+
+  p{
+    line-height: 2;
+    word-break : break-word;
+    word-wrap : break-word;
+  }
 
   h1 {
     font-size: 2.5rem;
