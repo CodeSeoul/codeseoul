@@ -22,7 +22,7 @@ const DetailedEventInfo = props => {
         {new Date(time).toLocaleString("us-GB", {
           month: "short",
           day: "numeric"
-        })}{" "}
+        })}{", "}
         <t />
         {local_time} ~{" "}
         {new Date(time + duration).toLocaleString("en-GB", {
