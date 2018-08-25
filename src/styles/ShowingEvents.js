@@ -43,6 +43,7 @@ const Events = styled.div`
 
   :hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25), 0 3px 3px rgba(0, 0, 0, 0.22);
+    cursor : pointer;
   }
 
   .groupName {
@@ -71,6 +72,7 @@ const LoadMoreEvents = styled.button`
   width: 20%;
   min-width : 15rem;
   :hover {
+    cursor : pointer;
     background-color: ${style.ThirdColor};
   }
 `;
