@@ -13,8 +13,8 @@ class Modal extends React.Component {
       return null;
     } else {
       return (
-        <ModalBackdrop>
-          <ModalContent>
+        <ModalBackdrop onClick={()=>this.props.onClose()}>
+          <ModalContent onClick={(e)=>e.stopPropagation()}>
           <ModalCloseButton>
               <FontAwesomeIcon
                 icon={faTimesCircle}
