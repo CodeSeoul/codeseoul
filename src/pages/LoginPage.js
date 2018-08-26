@@ -57,7 +57,9 @@ class LoginPage extends React.Component {
 				return res.json();
 			})
 			.then(data=>{
-				throwIfError(data);
+				if(data.err){
+					throw data.err;
+				}
 				this.setState({isAuthenticated:true});
 				this.setState({error:''});
 				if(typeof cb === 'function')
