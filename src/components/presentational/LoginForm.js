@@ -21,7 +21,6 @@ const LoginForm = (props) => {
                 <Button hidden={isAuthenticated} onClick={(e)=>register()}>Register</Button>
                 <Button onClick={(e)=>{isAuthenticated? logout():login()}}>{isAuthenticated? 'Logout':'Login'}</Button>
             </div>
-            <Button onClick={(e)=>checkAuth()}>CheckAuth</Button>
         </LoginFormContainer>
     )
 }
