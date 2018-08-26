@@ -24,19 +24,6 @@ const getJSON = (route, options = {}) => {
   });
 };
 
-const checkResponse = (res)=>{
-	if(res.status >= 200 && res.status < 300){
-		return;
-	}
-	else throw res;
-}
-
-const throwIfError = (res)=>{
-	if(!(res.status >= 200 && res.status < 300)){
-		throw res.err;
-	}
-}
-
 class LoginPage extends React.Component {
 	state = {
 		formInput:{
