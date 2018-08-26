@@ -49,6 +49,7 @@ class LoginPage extends React.Component {
 				}
 				this.setState({isAuthenticated:true});
 				this.setState({error:''});
+				this.functions.login();
 				if(typeof cb === 'function')
 					cb(data.user);
 			})
@@ -69,6 +70,7 @@ class LoginPage extends React.Component {
 					if (res.status >= 200 && res.status < 300) {
 						this.setState({ isAuthenticated: true });
 						this.setState({error:''});
+						this.functions.checkAuth();
 						if (typeof cb === 'function') cb(res);
 					} else this.setState({error:'Login failed'});
 				})
