@@ -11,7 +11,25 @@ const ContactPageStyle = styled.div`
       justify-content :center;
       align-items : center;
   }
+  
+  .primary-contact{
+      display : flex;
+      flex-wrap : wrap;
+      justify-content : center;
+      *{
+          margin : 0 auto;
+          padding : 0 50px;
+      }
+  }
 
+  .social-media ul{
+    display : flex;
+      flex-wrap : wrap;
+      justify-content : center;
+      li{
+          margin : 0 auto;
+      }
+  }
 `
 
 export default ContactPageStyle;
