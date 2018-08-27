@@ -11,6 +11,10 @@ const CarouselContainer = styled.div`
     display: flex;
     margin: 0 0 20px 20px;
 `
+
+const ContentClipper = styled.div`
+    width: 100%;
+    overflow: hidden;
 `
 
 const ItemUl = styled.ul`
@@ -24,4 +28,9 @@ const ItemLi = styled.li`
     padding: 5px;
 `
 
-export {CarouselItem, CarouselContainer, ItemUl, ItemLi};
+export {
+    CarouselItem,
+    CarouselContainer,
+    ItemUl,
+    ItemLi
+};
