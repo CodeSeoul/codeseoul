@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const CarouselItem = styled.div`
-    width: auto;
-    height:auto;
+    flex: 1 0 100%;
+    flex-basis: 80%;
+    margin-right: 20px;
     padding: 50px 0px;
     background: ${props => props.background};
 `
@@ -31,6 +32,7 @@ const ItemLi = styled.li`
 export {
     CarouselItem,
     CarouselContainer,
+    ContentClipper,
     ItemUl,
     ItemLi
 };
