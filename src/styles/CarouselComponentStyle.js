@@ -8,8 +8,9 @@ const CarouselItem = styled.div`
 `
 
 const CarouselContainer = styled.div`
-    width:80%;
-    height: auto;
+    display: flex;
+    margin: 0 0 20px 20px;
+`
 `
 
 const ItemUl = styled.ul`
