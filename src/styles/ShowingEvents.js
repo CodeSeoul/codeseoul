@@ -22,7 +22,7 @@ const CurrentEventsSection = styled.section`
 
 const ShowingEventsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
   grid-auto-rows: minmax(5rem, auto);
 
   .visible {
