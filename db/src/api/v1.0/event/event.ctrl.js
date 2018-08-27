@@ -32,7 +32,7 @@ exports.CreateMeetupEvents = async (req, res) => {
     } catch (e) {
         if (!isAuthError(e, res, 'Meetup')) {
             res.status(500).json({
-                error: e
+                error: e.message
             });
         }
     }

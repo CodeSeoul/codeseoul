@@ -1,3 +1,3 @@
 --recursive
 --reporter spec
---require ./test/server.bootstrap
+--require ./test/.server.bootstrap.js
