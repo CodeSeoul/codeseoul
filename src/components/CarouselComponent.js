@@ -9,28 +9,30 @@ const sliderSettings = {
     slidesToScroll: 1,
   };
 
-const CarouselComponent = ({meetupArray}) => {
-    const carouselItem = meetupArray.map((obj, i)=>{
-       return (<CarouselItem key={i} background={obj.background}>
-                <ItemUl>
-                    <ItemLi>
-                        Topic : {obj.title}
-                    </ItemLi>
-                    <ItemLi>
-                        Date : {obj.date}
-                    </ItemLi>
-                    <ItemLi>
-                        Host : {obj.host}
-                    </ItemLi>
-                </ItemUl>
-              </CarouselItem>)
-    });
-
-    return (
-        <CarouselContainer>
+class CarouselComponent extends React.Component {
+    render = () => {
+        const carouselItem = this.props.meetupArray.map((obj, i)=>{
+           return (<CarouselItem key={i} background={obj.background}>
+            <ItemUl>
+                <ItemLi>
+                    Topic : {obj.title}
+                </ItemLi>
+                <ItemLi>
+                    Date : {obj.date}
+                </ItemLi>
+                <ItemLi>
+                    Host : {obj.host}
+                </ItemLi>
+            </ItemUl>
+            </CarouselItem>)
+        });
+    
+        return (
+            <CarouselContainer>
                 {carouselItem}
-        </CarouselContainer>
-    );
+            </CarouselContainer>
+        );
+    }
 }
 
 export {CarouselComponent};
