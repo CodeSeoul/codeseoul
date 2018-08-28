@@ -1,8 +1,10 @@
 import React from 'react';
 import NavMenu from '../presentational/NavMenu';
 
-const NavMenuContainer = function() {
-  return <NavMenu />;
-};
+class NavMenuContainer extends React.Component {
+  render() {
+    return <NavMenu />;
+  }
+}
 
 export default NavMenuContainer;
