@@ -13,18 +13,29 @@ class CarouselComponent extends React.Component {
     state = {
         position: 0,
     }
+    getItemOrder(itemIndex){
+        const { position } = this.state;
+        const { meetupArray } = this.props;
+        const numItems = meetupArray.length || 1; 
+
+        if(itemIndex - position < 0){
+            return numItems - Math.abs(itemIndex - position);
+        }
+
+        return itemIndex - position;
+    }
     render = () => {
-        const carouselItem = this.props.meetupArray.map((obj, i)=>{
-           return (<CarouselItem key={i} background={obj.background}>
+        const carouselItem = this.props.meetupArray.map((child, i)=>{
+           return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
             <ItemUl>
                 <ItemLi>
-                    Topic : {obj.title}
+                    Topic : {child.title}
                 </ItemLi>
                 <ItemLi>
-                    Date : {obj.date}
+                    Date : {child.date}
                 </ItemLi>
                 <ItemLi>
-                    Host : {obj.host}
+                    Host : {child.host}
                 </ItemLi>
             </ItemUl>
             </CarouselItem>)

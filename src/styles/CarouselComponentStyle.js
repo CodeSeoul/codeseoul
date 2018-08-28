@@ -6,6 +6,7 @@ const CarouselItem = styled.div`
     margin-right: 20px;
     padding: 50px 0px;
     background: ${props => props.background};
+    order: ${(props) => props.order};
 `
 
 const CarouselContainer = styled.div`
