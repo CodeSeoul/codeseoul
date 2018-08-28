@@ -50,6 +50,7 @@ const ContactPageStyle = styled.div`
 
     input {
       height: 30px;
+      margin : 15px 0;
     }
   }
 `;
