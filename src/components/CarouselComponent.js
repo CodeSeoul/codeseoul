@@ -1,5 +1,7 @@
 import React from 'react';
-import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi} from '../styles/CarouselComponentStyle';
+import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi, ArrowButton} from '../styles/CarouselComponentStyle';
+import chevronRight from './../res/chevron-right.svg';
+import chevronLeft from './../res/chevron-left.svg';
 
 const sliderSettings = {
     dots: true,
@@ -50,6 +52,9 @@ class CarouselComponent extends React.Component {
     render = () => {
         const carouselItem = this.props.meetupArray.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
+           <ArrowButton>
+               <img src={chevronLeft}/>
+           </ArrowButton>
             <ItemUl>
                 <ItemLi>
                     Topic : {child.title}
@@ -61,6 +66,9 @@ class CarouselComponent extends React.Component {
                     Host : {child.host}
                 </ItemLi>
             </ItemUl>
+            <ArrowButton>
+                <img src={chevronRight}/>
+            </ArrowButton>
             </CarouselItem>)
         });
     
@@ -73,6 +81,7 @@ class CarouselComponent extends React.Component {
                 </CarouselContainer>
                 <button value='prev' onClick={this.changeSlide}>prev</button>
                 <button value='next' onClick={this.changeSlide}>next</button>
+                <img src={ArrowIcon}/>
             </ContentClipper>
         );
     }
