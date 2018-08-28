@@ -1,7 +1,7 @@
 import React from 'react';
-import NavMenuWrapper from '../../styles/navMenu_footer/navMenu';
+import NavMenuWrapper from '../../../styles/navMenu_footer/navMenu';
 import { Link } from 'react-router-dom';
-import logo from '../../images/cs_logo.png';
+import logo from '../../../images/cs_logo.png';
 const NavMenu = function() {
   return (
     <NavMenuWrapper>

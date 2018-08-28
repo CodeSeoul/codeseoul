@@ -1,5 +1,5 @@
 import React from 'react';
-import NavMenu from '../presentational/NavMenu';
+import NavMenu from '../../presentational/Nav_Footer/NavMenu';
 
 class NavMenuContainer extends React.Component {
   render() {
