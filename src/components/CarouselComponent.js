@@ -12,6 +12,8 @@ const sliderSettings = {
 class CarouselComponent extends React.Component {
     state = {
         position: 0,
+        direction: 'next',
+        isSliding: false,
     }
     getItemOrder(itemIndex){
         const { position } = this.state;
@@ -25,14 +27,25 @@ class CarouselComponent extends React.Component {
         return itemIndex - position;
     }
     changeSlide = event => {
-        const to = event.target.value;
+        const direction = event.target.value;
         let { position } = this.state;
         const { meetupArray } = this.props;
         const numItems = meetupArray.length || 1;
-        if(to == 'next')
+        if(direction == 'next'){
             position = position === numItems - 1 ? 0 : position + 1;
-        else position = position === 0 ? numItems - 1 : position - 1;
-        this.setState({position});
+            this.startSlide('next', position);
+        }
+        else {
+            position = position === 0 ? numItems - 1 : position - 1;
+            this.startSlide('prev', position);
+        }
+    }
+    startSlide = (direction, position) => {
+        this.setState({isSliding: true, direction, position});
+        
+        setTimeout(()=>{
+            this.setState({isSliding: false});
+        }, 50)
     }
     render = () => {
         const carouselItem = this.props.meetupArray.map((child, i)=>{
@@ -53,7 +66,9 @@ class CarouselComponent extends React.Component {
     
         return (
             <ContentClipper>
-                <CarouselContainer>
+                <CarouselContainer 
+                    isSliding={this.state.isSliding} 
+                    direction={this.state.direction}>
                     {carouselItem}
                 </CarouselContainer>
                 <button value='prev' onClick={this.changeSlide}>prev</button>

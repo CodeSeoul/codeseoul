@@ -12,6 +12,15 @@ const CarouselItem = styled.div`
 const CarouselContainer = styled.div`
     display: flex;
     margin: 0 0 20px 20px;
+    transition: ${props => props.isSliding? 'none': 'transform 1s ease'};
+
+    transform: ${props => {
+        if(!props.isSliding)
+            return 'translateX(calc(-80% - 20px))'
+        else if (props.direction === 'prev') 
+            return 'translateX(calc(2 * (-80% - 20px)))'
+        return 'translateX(0%)'
+    }}
 `
 
 const ContentClipper = styled.div`
