@@ -1,7 +1,8 @@
 import React from 'react';
 import baseStyles from '../styles/base-styles';
 import { BrowserRouter, Route } from 'react-router-dom';
-import NavMenuContainer from './containers/NavMenuContainer';
+import NavMenuContainer from './containers/nav_footer/NavMenuContainer';
+import FooterContainer from './containers/nav_footer/FooterContainer';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
@@ -18,6 +19,7 @@ const PrimaryLayout = () => (
       <Route path="/contact" component={ContactPage} />
       <Route path="/login" component={LoginPage} />
     </main>
+    <FooterContainer />
   </div>
 );
 
