@@ -20,7 +20,7 @@ const CarouselContainer = styled.div`
         else if (props.direction === 'prev') 
             return 'translateX(calc(2 * (-80% - 20px)))'
         return 'translateX(0%)'
-    }}
+    }};
 `
 
 const ContentClipper = styled.div`
@@ -39,10 +39,16 @@ const ItemLi = styled.li`
     padding: 5px;
 `
 
+const ArrowButton = styled.button`
+    background: transparent;
+    border: none;
+`
+
 export {
     CarouselItem,
     CarouselContainer,
     ContentClipper,
     ItemUl,
-    ItemLi
+    ItemLi,
+    ArrowButton
 };

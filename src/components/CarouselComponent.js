@@ -81,7 +81,9 @@ class CarouselComponent extends React.Component {
                 </CarouselContainer>
                 <button value='prev' onClick={this.changeSlide}>prev</button>
                 <button value='next' onClick={this.changeSlide}>next</button>
-                <img src={ArrowIcon}/>
+                <ArrowButton>
+                    <img src={ArrowIcon}/>
+                </ArrowButton>
             </ContentClipper>
         );
     }
