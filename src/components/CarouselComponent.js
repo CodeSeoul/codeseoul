@@ -10,6 +10,9 @@ const sliderSettings = {
 };
 
 class CarouselComponent extends React.Component {
+    state = {
+        position: 0,
+    }
     render = () => {
         const carouselItem = this.props.meetupArray.map((obj, i)=>{
            return (<CarouselItem key={i} background={obj.background}>
