@@ -6,17 +6,17 @@ const NavMenuWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 5rem;
-  /* background-color: ${PrimaryColor}; */
+  height: 6rem;
+  border-top: 5px solid #bf1e2e;
   background-image: url(${header});
-  background-size: 100% 5rem;
+  background-size: 100% 6rem;
 
   .nav-logo {
     align-self: center;
   }
   img {
-    width: 20vw;
-    height: 5vw;
+    width: 17vw;
+    height: 3.5vw;
   }
   div.nav-links {
     display: flex;
