@@ -24,6 +24,16 @@ class CarouselComponent extends React.Component {
 
         return itemIndex - position;
     }
+    changeSlide = event => {
+        const to = event.target.value;
+        let { position } = this.state;
+        const { meetupArray } = this.props;
+        const numItems = meetupArray.length || 1;
+        if(to == 'next')
+            position = position === numItems - 1 ? 0 : position + 1;
+        else position = position === 0 ? numItems - 1 : position - 1;
+        this.setState({position});
+    }
     render = () => {
         const carouselItem = this.props.meetupArray.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
@@ -46,6 +56,8 @@ class CarouselComponent extends React.Component {
                 <CarouselContainer>
                     {carouselItem}
                 </CarouselContainer>
+                <button value='prev' onClick={this.changeSlide}>prev</button>
+                <button value='next' onClick={this.changeSlide}>next</button>
             </ContentClipper>
         );
     }
