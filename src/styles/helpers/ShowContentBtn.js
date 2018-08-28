@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import * as style from '../../styles/variable';
-
 const ShowContentBtn = styled.button`
   width: ${props => (props.isDisabled ? '10%' : '30%')};
   height: ${props => (props.isDisabled ? '3rem' : '5rem')};
@@ -9,6 +7,9 @@ const ShowContentBtn = styled.button`
   background-color: ${props => (props.isDisabled ? 'gray' : '#f77f00')};
   color: white;
   border-radius: 3px;
+  :hover{
+    cursor : pointer;
+  }
 `;
 
 export default ShowContentBtn;

@@ -21,4 +21,16 @@ const ModalContent = styled.div`
   position: relative;
 `;
 
-export { ModalBackdrop, ModalContent };
+const ModalCloseButton = styled.div`
+margin : none;
+border : none;
+position : absolute;
+top : 15px;
+right : 15px;
+:hover{
+  cursor : pointer;
+}
+
+`
+
+export { ModalBackdrop, ModalContent, ModalCloseButton };
