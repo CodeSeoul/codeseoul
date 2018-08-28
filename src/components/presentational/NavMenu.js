@@ -10,8 +10,9 @@ const NavMenu = function() {
       </Link>
       <div className="nav-links">
         <Link to="/events">Events</Link>
-        <Link to="/events">About</Link>
-        <Link to="/events">Contact</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/login">Login</Link>
       </div>
     </NavMenuWrapper>
   );
