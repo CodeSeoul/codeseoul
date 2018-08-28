@@ -7,7 +7,7 @@ const ContactPage = () => {
         <header>
           <h1>Contact Us</h1>
         </header>
-
+        <div className="container">
         <div className="primary-contact">
           <div id="email">Email : wcoding@wcoding.org</div>
           <div id="phone">Phone : 02-1232-1124</div>
@@ -22,14 +22,19 @@ const ContactPage = () => {
           </ul>
         </div>
 
-        <div className="form">
           <form action="">
-            <input type="text" />
-            <input type="email" />
-            <input type="textarea" />
+            <label htmlFor='first-name'>First Name</label>
+            <input type="text" id='first-name' />
+            <label htmlFor="last-name">Last Name</label>
+            <input type="text" id='last-name' />
+            <label htmlFor="email">Email</label>
+            <input type="email" id='email' />
+            <label htmlFor="message">Message</label>
+            <input type="textarea" id='message' />
             <button id="submit">Send</button>
           </form>
-        </div>
+          </div>
+
     </ContactPageStyle>
   );
 };
