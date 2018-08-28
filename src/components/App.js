@@ -1,14 +1,16 @@
 import React from 'react';
 import baseStyles from '../styles/base-styles';
 import { BrowserRouter, Route } from 'react-router-dom';
+import NavMenuContainer from './containers/NavMenuContainer';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import EventsPage from '../pages/EventsPage';
-import LoginPage from '../pages/LoginPage'
+import LoginPage from '../pages/LoginPage';
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
+    <NavMenuContainer />
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/events" component={EventsPage} />
