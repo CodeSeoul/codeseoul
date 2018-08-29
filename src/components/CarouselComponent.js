@@ -1,5 +1,5 @@
 import React from 'react';
-import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi, ArrowButton} from '../styles/CarouselComponentStyle';
+import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi, SlideButton} from '../styles/CarouselComponentStyle';
 import chevronRight from './../res/chevron-right.svg';
 import chevronLeft from './../res/chevron-left.svg';
 
@@ -52,9 +52,9 @@ class CarouselComponent extends React.Component {
     render = () => {
         const carouselItem = this.props.meetupArray.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
-           <ArrowButton>
+           <SlideButton>
                <img src={chevronLeft}/>
-           </ArrowButton>
+           </SlideButton>
             <ItemUl>
                 <ItemLi>
                     Topic : {child.title}
@@ -66,9 +66,9 @@ class CarouselComponent extends React.Component {
                     Host : {child.host}
                 </ItemLi>
             </ItemUl>
-            <ArrowButton>
+            <SlideButton>
                 <img src={chevronRight}/>
-            </ArrowButton>
+            </SlideButton>
             </CarouselItem>)
         });
     

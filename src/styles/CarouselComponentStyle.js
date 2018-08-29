@@ -43,7 +43,7 @@ const ItemLi = styled.li`
     padding: 5px;
 `
 
-const ArrowButton = styled.button`
+const SlideButton = styled.button`
     background: transparent;
     border: none;
     transform: scale(3);
@@ -56,5 +56,5 @@ export {
     ContentClipper,
     ItemUl,
     ItemLi,
-    ArrowButton
+    SlideButton
 };
