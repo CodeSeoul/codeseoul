@@ -2,22 +2,46 @@ import React from "react";
 import ContactPageStyle from "../styles/pages/ContactPage/ContactPageStyle";
 
 class ContactPage extends React.Component {
+  state = {
+    firstName: null,
+    lastName: null,
+    email: null,
+    message: null
+  };
 
-  state={
-    'first-name' : null,
-    'last-name' : null,
-    'email' : null,
-    'message' : null
-  }
-  changeHandler = event => {
-    const target = event.target;
-    const value = target.value;
-    const id = target.id;
-    
-    this.setState({
-      [id] : value
-    })
-    console.log(this.state);
+  functions = {
+    changeHandler: event => {
+      const target = event.target;
+      const value = target.value;
+      const id = target.id;
+
+      this.setState({
+        [id]: value
+      });
+      console.log(this.state);
+    },
+    postInquiry: event => {
+      const { firstName, lastName, email, message } = this.state;
+      fetch("http://localhost:4002/api/v1.0/inquiry", {
+        method: "post",
+        headers: {
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          message: message
+        })
+      })
+        .then(res => {
+          console.log(res);
+          res.json();
+        })
+        .then(data => {
+          console.log(data);
+        });
+    }
   };
   render() {
     return (
@@ -40,16 +64,38 @@ class ContactPage extends React.Component {
             </ul>
           </div>
 
-          <form action="">
-            <label htmlFor="first-name">First Name</label>
-            <input type="text" id="first-name" onChange={this.changeHandler} />
-            <label htmlFor="last-name">Last Name</label>
-            <input type="text" id="last-name" onChange={this.changeHandler} />
+          <form>
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              required={true}
+              id="firstName"
+              onChange={this.functions.changeHandler}
+            />
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              required={true}
+              id="lastName"
+              onChange={this.functions.changeHandler}
+            />
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.changeHandler} />
+            <input
+              type="email"
+              required={true}
+              id="email"
+              onChange={this.functions.changeHandler}
+            />
             <label htmlFor="message">Message</label>
-            <input type="textarea" id="message" onChange={this.changeHandler} />
-            <button id="submit">Send</button>
+            <input
+              type="textarea"
+              required={true}
+              id="message"
+              onChange={this.functions.changeHandler}
+            />
+            <button id="submit" onClick={() => this.functions.postInquiry()}>
+              Send
+            </button>
           </form>
         </div>
       </ContactPageStyle>
