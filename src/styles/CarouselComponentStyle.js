@@ -47,7 +47,7 @@ const SlideButton = styled.button`
     background: transparent;
     border: none;
     transform: scale(3);
-    padding: 20px;
+    margin: 20px;
 `
 
 export {

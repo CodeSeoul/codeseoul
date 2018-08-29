@@ -52,7 +52,7 @@ class CarouselComponent extends React.Component {
     render = () => {
         const carouselItem = this.props.meetupArray.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
-           <SlideButton>
+           <SlideButton value='prev' onClick={this.changeSlide}>
                <img src={chevronLeft}/>
            </SlideButton>
             <ItemUl>
@@ -66,7 +66,7 @@ class CarouselComponent extends React.Component {
                     Host : {child.host}
                 </ItemLi>
             </ItemUl>
-            <SlideButton>
+            <SlideButton value='next' onClick={this.changeSlide}>
                 <img src={chevronRight}/>
             </SlideButton>
             </CarouselItem>)
