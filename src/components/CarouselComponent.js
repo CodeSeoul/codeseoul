@@ -1,7 +1,10 @@
 import React from 'react';
 import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi, SlideButton} from '../styles/CarouselComponentStyle';
-import chevronRight from './../res/chevron-right.svg';
-import chevronLeft from './../res/chevron-left.svg';
+// import chevronRight from './../res/chevron-right.svg';
+// import chevronLeft from './../res/chevron-left.svg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const sliderSettings = {
     dots: true,
@@ -69,7 +72,7 @@ class CarouselComponent extends React.Component {
         return (
             <ContentClipper>
                 <SlideButton left value='prev' onClick={this.changeSlide}>
-                    <img src={chevronLeft}/>
+                    <FontAwesomeIcon icon={faChevronLeft}/>
                 </SlideButton>
                 <CarouselContainer 
                     isSliding={this.state.isSliding} 
@@ -77,7 +80,7 @@ class CarouselComponent extends React.Component {
                     {carouselItem}
                 </CarouselContainer>
                 <SlideButton value='next' onClick={this.changeSlide}>
-                    <img src={chevronRight}/>
+                    <FontAwesomeIcon icon={faChevronRight}/>
                 </SlideButton>
             </ContentClipper>
         );
