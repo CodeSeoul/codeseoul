@@ -26,11 +26,30 @@ const placeholderData = [
 ];
 
 
-const HomePage = () => (
-  <div>homepage
-    <CarouselComponent meetupArray={placeholderData} />
-  </div>
+class HomePage extends React.Component{
+  state = {
+    pastEvents: []
+  }
 
-);
+  componentDidMount() {
+    fetch('https://api.meetup.com/Learn-Teach-Code-Seoul/events?status=past&page=4&desc=true')
+      .then(res => res.json())
+      .then(events => {
+        this.setState({
+          pastEvents: events
+        });
+      });
+  }
+
+  render = () => {
+    console.log(this.state.pastEvents);
+    return (
+      <div>homepage
+        <CarouselComponent meetupArray={placeholderData} />
+      </div>
+
+    );
+  }
+} 
 
 export default HomePage;
