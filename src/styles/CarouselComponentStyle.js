@@ -7,6 +7,10 @@ const CarouselItem = styled.div`
     padding: 50px 0px;
     background: ${props => props.background};
     order: ${(props) => props.order};
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 
 const CarouselContainer = styled.div`
