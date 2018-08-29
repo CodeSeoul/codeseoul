@@ -79,8 +79,6 @@ class CarouselComponent extends React.Component {
                     direction={this.state.direction}>
                     {carouselItem}
                 </CarouselContainer>
-                <button value='prev' onClick={this.changeSlide}>prev</button>
-                <button value='next' onClick={this.changeSlide}>next</button>
             </ContentClipper>
         );
     }
