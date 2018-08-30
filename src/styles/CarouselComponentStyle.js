@@ -24,15 +24,14 @@ const CarouselContainer = styled.div`
 
 const ContentClipper = styled.div`
     overflow: hidden;
-    margin: auto;
+    margin: 10px;
     position: relative;
 `
 
 const ItemUl = styled.ul`
     width:auto;
     height:auto;
-    float: right;
-    padding-right:100px;
+    padding-left:100px;
 `
 
 const ItemLi = styled.li`
