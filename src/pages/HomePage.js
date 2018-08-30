@@ -64,7 +64,7 @@ class HomePage extends React.Component{
     console.log(this.state.upcomingEvents);
     return (
       <div>
-        <CarouselComponent meetupArray={placeholderData} />
+        <CarouselComponent events={this.state.upcomingEvents} />
         <FlexBox>
           <PastEvents events={this.state.pastEvents}/>
           {/* <QnA/>

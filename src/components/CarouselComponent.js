@@ -20,8 +20,8 @@ class CarouselComponent extends React.Component {
     }
     getItemOrder(itemIndex){
         const { position } = this.state;
-        const { meetupArray } = this.props;
-        const numItems = meetupArray.length || 1; 
+        const { events } = this.props;
+        const numItems = events.length || 1; 
 
         if(itemIndex - position < 0){
             return numItems - Math.abs(itemIndex - position);
@@ -32,8 +32,8 @@ class CarouselComponent extends React.Component {
     changeSlide = event => {
         const direction = event.target.value;
         let { position } = this.state;
-        const { meetupArray } = this.props;
-        const numItems = meetupArray.length || 1;
+        const { events } = this.props;
+        const numItems = events.length || 1;
         if(direction == 'next'){
             position = position === numItems - 1 ? 0 : position + 1;
             this.startSlide('next', position);
@@ -51,17 +51,17 @@ class CarouselComponent extends React.Component {
         }, 50)
     }
     render = () => {
-        const carouselItem = this.props.meetupArray.map((child, i)=>{
+        const carouselItem = this.props.events.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
             <ItemUl>
                 <ItemLi>
-                    Topic : {child.title}
+                    Topic : {child.name}
                 </ItemLi>
                 <ItemLi>
-                    Date : {child.date}
+                    Date : {child.local_date}
                 </ItemLi>
                 <ItemLi>
-                    Host : {child.host}
+                    Link : {child.link}
                 </ItemLi>
             </ItemUl>
             </CarouselItem>)
