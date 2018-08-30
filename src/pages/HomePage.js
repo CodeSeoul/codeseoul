@@ -30,7 +30,8 @@ const placeholderData = [
  
 class HomePage extends React.Component{
   state = {
-    pastEvents: []
+    pastEvents: [],
+    upcomingEvents: [],
   }
 
   componentDidMount() {
@@ -41,10 +42,26 @@ class HomePage extends React.Component{
           pastEvents: events
         });
       });
+    fetch('https://api.meetup.com/Learn-Teach-Code-Seoul/events?page=10')
+      .then(res => res.json())
+      .then(events => {
+        function removeDuplicatesByKey(array, keyFn){
+          let set = new Set();
+          return array.filter(item=>{
+            let key = keyFn(item), isNew = !set.has(key);
+            if(isNew) set.add(key);
+            return isNew;
+          })
+        }
+        const filteredEvents = removeDuplicatesByKey(events, event=>event.name);
+        this.setState({
+          upcomingEvents: filteredEvents
+        });
+      });
   }
 
   render = () => {
-    console.log(this.state.pastEvents);
+    console.log(this.state.upcomingEvents);
     return (
       <div>
         <CarouselComponent meetupArray={placeholderData} />
