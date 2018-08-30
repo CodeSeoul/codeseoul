@@ -1,6 +1,7 @@
 import React from 'react';
 import {CarouselComponent} from '../components/CarouselComponent';
 import PastEvents from '../components/presentational/PastEvents';
+import { FlexBox } from '../styles/HomePageStyle';
 
 const placeholderData = [
   {  
@@ -47,9 +48,12 @@ class HomePage extends React.Component{
     return (
       <div>
         <CarouselComponent meetupArray={placeholderData} />
-        <PastEvents events={this.state.pastEvents}/>
+        <FlexBox>
+          <PastEvents events={this.state.pastEvents}/>
+          {/* <QnA/>
+          <Resources/> */}
+        </FlexBox>
       </div>
-
     );
   }
 } 
