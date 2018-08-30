@@ -1,5 +1,6 @@
 import React from 'react';
 import {CarouselComponent} from '../components/CarouselComponent';
+import PastEvents from '../components/presentational/PastEvents';
 
 const placeholderData = [
   {  
@@ -46,6 +47,7 @@ class HomePage extends React.Component{
     return (
       <div>homepage
         <CarouselComponent meetupArray={placeholderData} />
+        <PastEvents events={this.state.pastEvents}/>
       </div>
 
     );
