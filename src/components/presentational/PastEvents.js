@@ -18,7 +18,6 @@ const PastEvents = ({events}) => {
   });
   return(
     <div>
-      <h2>Past Events</h2>
       {eventsUI}
     </div>
   );

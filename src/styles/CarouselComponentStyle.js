@@ -23,7 +23,6 @@ const CarouselContainer = styled.div`
 `
 
 const ContentClipper = styled.div`
-    width: 80%;
     overflow: hidden;
     margin: auto;
     position: relative;

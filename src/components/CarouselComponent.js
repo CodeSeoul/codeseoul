@@ -1,7 +1,5 @@
 import React from 'react';
 import {CarouselItem, CarouselContainer, ContentClipper, ItemUl, ItemLi, SlideButton} from '../styles/CarouselComponentStyle';
-// import chevronRight from './../res/chevron-right.svg';
-// import chevronLeft from './../res/chevron-left.svg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";

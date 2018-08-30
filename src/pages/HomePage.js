@@ -26,7 +26,7 @@ const placeholderData = [
   },
 ];
 
-
+ 
 class HomePage extends React.Component{
   state = {
     pastEvents: []
@@ -45,7 +45,7 @@ class HomePage extends React.Component{
   render = () => {
     console.log(this.state.pastEvents);
     return (
-      <div>homepage
+      <div>
         <CarouselComponent meetupArray={placeholderData} />
         <PastEvents events={this.state.pastEvents}/>
       </div>
