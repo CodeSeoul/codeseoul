@@ -1,6 +1,15 @@
-const axios = require("axios");
-const qs = require("qs");
+const Inquiry = require('../../../models/Inquiry');
 
-exports.PostInquiries = async (req, res) => {
-  res.send(req.body);
+exports.PostInquiries = (req, res) => {
+  const { body } = req;
+  const { firstName, lastName, email, message } = body;
+
+  let newInquiry= new Inquiry({        
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    message: message});
+  
+  newInquiry.save().then(inquiry => res.json(inquiry))
+
 };
