@@ -105,6 +105,8 @@ class LoginPage extends React.Component {
 						});
 						this.setState({ isAuthenticated: true });
 						this.setState({error:''});
+						this.props.history.push("/");
+						console.log('Successfully Login');
 					} else {
 						if(!this.state.isAuthenticated)
 							this.setState({error:'You are not logged in'});
