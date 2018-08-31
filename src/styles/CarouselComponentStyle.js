@@ -35,6 +35,7 @@ const ItemUl = styled.ul`
     height:auto;
     padding-left: 100px;
     padding-right: 100px;
+    cursor: pointer;
 `
 
 const ItemLi = styled.li`
