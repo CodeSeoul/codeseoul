@@ -22,7 +22,7 @@ const CurrentEventsSection = styled.section`
 
 const ShowingEventsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-auto-rows: minmax(5rem, auto);
 
   .visible {
@@ -43,7 +43,7 @@ const Events = styled.div`
 
   :hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25), 0 3px 3px rgba(0, 0, 0, 0.22);
-    cursor : pointer;
+    cursor: pointer;
   }
 
   .groupName {
@@ -62,7 +62,7 @@ const Events = styled.div`
 `;
 
 const LoadMoreEvents = styled.button`
-  margin: 1rem auto;
+  margin: 1rem auto 8rem;
   display: block;
   height: 2rem;
   background-color: ${style.FourthColor};
@@ -70,9 +70,9 @@ const LoadMoreEvents = styled.button`
   border: none;
   font-size: 1.1rem;
   width: 20%;
-  min-width : 15rem;
+  min-width: 15rem;
   :hover {
-    cursor : pointer;
+    cursor: pointer;
     background-color: ${style.ThirdColor};
   }
 `;
@@ -80,16 +80,16 @@ const LoadMoreEvents = styled.button`
 const DetailedEventInfoStyle = styled.div`
   line-height: 2.5rem;
 
-  p{
+  p {
     line-height: 2;
-    word-break : break-word;
-    word-wrap : break-word;
+    word-break: break-word;
+    word-wrap: break-word;
   }
 
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
-    line-height : 1.3;
+    line-height: 1.3;
   }
   h2 {
     font-size: 1.5rem;
@@ -97,7 +97,7 @@ const DetailedEventInfoStyle = styled.div`
   }
   .image-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
     text-align: center;
