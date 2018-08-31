@@ -54,14 +54,14 @@ class CarouselComponent extends React.Component {
         const carouselItem = this.props.events.map((child, i)=>{
            return (<CarouselItem key={i} order={this.getItemOrder(i)} background={child.background}>
             <ItemUl>
-                <ItemLi>
+                <ItemLi style={{color:'gray'}}>
+                    Date : {child.local_date}
+                </ItemLi>
+                <ItemLi style={{fontWeight:900, fontSize:'40px'}}>
                     Topic : {child.name}
                 </ItemLi>
                 <ItemLi>
-                    Date : {child.local_date}
-                </ItemLi>
-                <ItemLi>
-                    Link : {child.link}
+                    {child.venue.name}
                 </ItemLi>
             </ItemUl>
             </CarouselItem>)

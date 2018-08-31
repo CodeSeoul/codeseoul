@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as style from './variable';
 
 const CarouselItem = styled.div`
     flex: 1 0 100%;
@@ -26,12 +27,14 @@ const ContentClipper = styled.div`
     overflow: hidden;
     margin: 10px;
     position: relative;
+    border: 5px solid ${style.ThirdColor};
 `
 
 const ItemUl = styled.ul`
     width:auto;
     height:auto;
-    padding-left:100px;
+    padding-left: 100px;
+    padding-right: 100px;
 `
 
 const ItemLi = styled.li`
@@ -42,10 +45,11 @@ const SlideButton = styled.button`
     background: transparent;
     border: none;
     transform: scale(3);
-    margin: 20px;
     z-index: 10;
     position: absolute;
-    top: 60px;
+    top: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
     left: ${props=>props.left?'15px':''};
     right: ${props=>props.left?'':'15px'};
 `
