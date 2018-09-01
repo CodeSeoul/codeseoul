@@ -3,9 +3,12 @@ import * as style from "../../variable";
 
 const ContactPageStyle = styled.div`
   text-align: center;
+  *{
+    box-sizing : border-box;
+    }
 
   .container {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     max-width: 40%;
     min-width: 250px;
     margin: 0 auto;
@@ -43,14 +46,27 @@ const ContactPageStyle = styled.div`
   }
 
   form {
-    min-width: 300px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 
     input {
+      max-width : 400px;
+      min-width : 250px;
       height: 30px;
-      margin : 15px 0;
+      margin : 10px auto;
+    }
+    button{
+      max-width : 400px;
+      min-width : 250px;
+      background-color : white;
+      font-size : inherit;
+      margin : 10px auto 0 auto;
+      padding : 0;
+      height : 30px;
+      border : ${style.SecondaryColor} 1px solid;
+      
     }
   }
 `;
