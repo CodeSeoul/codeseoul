@@ -66,6 +66,9 @@ const ContactPageStyle = styled.div`
       padding: 0;
       height: 30px;
       border: ${style.SecondaryColor} 1px solid;
+      &:hover {
+        color: white;
+        background-color: ${style.SecondaryColor};
       }
     }
   }
