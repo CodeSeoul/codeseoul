@@ -70,7 +70,7 @@ class EventsPage extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.numberOfEvents !== this.state.numberOfEvents) {
-      window.scroll(0, document.body.scrollHeight);
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }
   }
   render() {
