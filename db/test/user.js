@@ -66,8 +66,8 @@ describe('Users', () => {
             agent
                 .post('/api/v1.0/user/login')
                 .send({
-                    "username": "helow1",
-                    "password": "asdasd2"
+                    'username': 'helow1',
+                    'password': 'asdasd2'
                 })
                 .end((err, res) => {
                     res.should.have.status(401);
@@ -79,8 +79,8 @@ describe('Users', () => {
             agent
                 .post('/api/v1.0/user/login')
                 .send({
-                    "username": "helow1",
-                    "password": "asdasdasd"
+                    'username': 'helow1',
+                    'password': 'asdasdasd'
                 })
                 .end((err, res) => {
                     res.should.have.status(200);
