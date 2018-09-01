@@ -2,11 +2,10 @@ import styled from "styled-components";
 import * as style from "./variable";
 
 const LoginFormContainer = styled.div`
-    position: fixed;
+
+    margin : 20px auto;
     width: 60%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
 `;
 
 const Form = styled.form`
