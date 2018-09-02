@@ -6,7 +6,6 @@ const FooterWrapper = styled.div`
   height: 6rem;
   background-image: url(${footer});
   background-size: 100% 6rem;
-  position: fixed;
   bottom: 0;
 `;
 
