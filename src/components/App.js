@@ -9,13 +9,6 @@ import ContactPage from "../pages/ContactPage";
 import EventsPage from "../pages/EventsPage";
 import LoginPage from "../pages/LoginPage";
 
-//add font-awesome access to all components.
-//docs: https://fontawesome.com/how-to-use/on-the-web/using-with/react
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStroopwafel } from "@fortawesome/free-solid-svg-icons";
-library.add(faStroopwafel);
-
 const PrimaryLayout = () => (
   <div className="primary-layout">
     <NavMenuContainer />
