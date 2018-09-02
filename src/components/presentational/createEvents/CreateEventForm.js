@@ -1,5 +1,5 @@
-import React from 'react';
-import CreateEventFormWrapper from '../../styles/meetup/createEventFormWrapper';
+import React from "react";
+import CreateEventFormWrapper from "../../../styles/meetup/createEventFormWrapper";
 const CreateEventForm = props => {
   const { onChangeHandler, createEvent, event, closeForm } = props;
   const { EventDescription, CreateEventButton } = CreateEventFormWrapper;
