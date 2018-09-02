@@ -64,7 +64,7 @@ class CarouselComponent extends React.Component {
         return itemIndex - position;
     }
     changeSlide = event => {
-        const direction = event.target.value;
+        const direction = event.currentTarget.value;
         let { position } = this.state;
         const { events } = this.props;
         const numItems = events.length || 1;
