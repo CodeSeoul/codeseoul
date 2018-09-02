@@ -1,5 +1,5 @@
-import React from 'react';
-import ShowContentBtn from '../../styles/helpers/ShowContentBtn';
+import React from "react";
+import ShowContentBtn from "../../styles/helpers/ShowContentBtn";
 class ToggleDisplay extends React.Component {
   state = { show: false };
 
@@ -9,8 +9,8 @@ class ToggleDisplay extends React.Component {
         show: !this.state.show
       });
     } else {
-      console.log('hovering');
-      alert('Login as Administrator to Create Events.');
+      console.log("hovering");
+      alert("Login as Administrator to Create Events.");
     }
   };
   render() {
@@ -18,7 +18,7 @@ class ToggleDisplay extends React.Component {
     let childrenWithHander = React.cloneElement(children, {
       handleToggle: this.handleToggle
     });
-    console.log('isAuthenticated', isAuthenticated);
+    //console.log('isAuthenticated', isAuthenticated);
     let content = !this.state.show ? (
       <ShowContentBtn isDisabled={!isAuthenticated} onClick={this.handleToggle}>
         {buttonText}

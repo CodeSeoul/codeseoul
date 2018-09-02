@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
   ShowingEventsContainer,
   Events,
   LoadMoreEvents,
   CurrentEventsSection
-} from '../styles/ShowingEvents';
-import EventsPageWrapper from '../styles/pages/eventsPage';
-import CreateEventFormContainer from '../components/containers/CreateEventFormContainer';
-import ToggleDisplay from '../components/helper/ToggleDisplay';
-import IsAdmin from '../components/helper/IsAdmin';
-import DetailedEventInfo from '../components/DetailedEventInfo';
-import Modal from '../components/Modal/Modal';
+} from "../styles/ShowingEvents";
+import EventsPageWrapper from "../styles/pages/eventsPage";
+import CreateEventFormContainer from "../components/containers/CreateEventFormContainer";
+import ToggleDisplay from "../components/helper/ToggleDisplay";
+import IsAdmin from "../components/helper/IsAdmin";
+import DetailedEventInfo from "../components/DetailedEventInfo";
+import Modal from "../components/Modal/Modal";
 
 class EventsPage extends React.Component {
   state = {
@@ -51,6 +51,7 @@ class EventsPage extends React.Component {
 
   ShowMoreEvents = e => {
     e.preventDefault();
+
     let newNumberOfEvents = this.state.numberOfEvents;
     newNumberOfEvents = newNumberOfEvents + 3;
     this.setState({
@@ -59,7 +60,7 @@ class EventsPage extends React.Component {
   };
 
   componentDidMount() {
-    fetch('https://api.meetup.com/Learn-Teach-Code-Seoul/events')
+    fetch("https://api.meetup.com/Learn-Teach-Code-Seoul/events")
       .then(res => res.json())
       .then(events => {
         this.setState({
@@ -67,20 +68,24 @@ class EventsPage extends React.Component {
         });
       });
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.numberOfEvents !== this.state.numberOfEvents) {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  }
   render() {
     const { Header } = EventsPageWrapper;
     const events = this.state.events
-      .filter(event => event.status === 'upcoming')
+      .filter(event => event.status === "upcoming")
       .map((event, index) => {
         return (
           <Events
             className={
               index < 3
-                ? ''
+                ? ""
                 : index <= this.state.numberOfEvents
-                  ? 'visible'
-                  : 'invisible'
+                  ? "visible"
+                  : "invisible"
             }
             key={event.id}
             onClick={e => this.ShowModal(e, event)}
@@ -89,10 +94,11 @@ class EventsPage extends React.Component {
             <div className="eventInfo">
               {event.name}
               <br />
-              {new Date(event.time).toLocaleString('en-US', {
-                month: 'short',
-                day: 'numeric'
-              })}{', '}
+              {new Date(event.time).toLocaleString("en-US", {
+                month: "short",
+                day: "numeric"
+              })}
+              {", "}
               {event.local_time}
             </div>
           </Events>
