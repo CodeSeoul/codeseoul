@@ -80,6 +80,7 @@ class EventsPage extends React.Component {
       .map((event, index) => {
         return (
           <Events
+            interactive
             className={
               index < 3
                 ? ""
