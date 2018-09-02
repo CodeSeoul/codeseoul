@@ -3,9 +3,9 @@ import * as style from "../../variable";
 
 const ContactPageStyle = styled.div`
   text-align: center;
-  *{
-    box-sizing : border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
   .container {
     font-size: 1.2rem;
@@ -20,8 +20,8 @@ const ContactPageStyle = styled.div`
 
   header {
     background-color: ${style.PrimaryColor};
-    height: 30vh;
-    font-size: 3rem;
+    height: 20vmin;
+    font-size: 7.5vmin;
     color: white;
     display: flex;
     align-items: center;
@@ -52,21 +52,24 @@ const ContactPageStyle = styled.div`
     flex-wrap: wrap;
 
     input {
-      max-width : 400px;
-      min-width : 250px;
+      width: 80%;
+      min-width: inherit;
       height: 30px;
-      margin : 10px auto;
+      margin: 10px auto;
     }
-    button{
-      max-width : 400px;
-      min-width : 250px;
-      background-color : white;
-      font-size : inherit;
-      margin : 10px auto 0 auto;
-      padding : 0;
-      height : 30px;
-      border : ${style.SecondaryColor} 1px solid;
-      
+    button {
+      width: 80%;
+      min-width: inherit;
+      background-color: white;
+      font-size: inherit;
+      margin: 10px auto 0 auto;
+      padding: 0;
+      height: 30px;
+      border: ${style.SecondaryColor} 1px solid;
+      &:hover {
+        color: white;
+        background-color: ${style.SecondaryColor};
+      }
     }
   }
 `;
