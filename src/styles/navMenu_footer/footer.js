@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import footer from '../../images/footer.png';
+import styled from "styled-components";
+import footer from "../../images/footer.png";
 
 const FooterWrapper = styled.div`
   width: 100%;

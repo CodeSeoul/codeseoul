@@ -1,23 +1,23 @@
-import React from 'react';
-import CreateEventForm from '../presentational/CreateEventForm';
-import { MY_KEY } from '../../config.js';
+import React from "react";
+import CreateEventForm from "../presentational/createEvents/CreateEventForm";
+import { MY_KEY } from "../../config.js";
 class CreateEventFormContainer extends React.Component {
   state = {
     eventData: {
-      name: '',
-      description: '',
-      duration: '',
-      date: '',
-      startTime: '',
-      endTime: '',
-      directions: '',
-      venueId: '25507426' //default wcoding
+      name: "",
+      description: "",
+      duration: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      directions: "",
+      venueId: "25507426" //default wcoding
     }
   };
   onChangeHandler = e => {
     let newValue = e.target.value;
     let name = e.target.name;
-    console.log('name', name, this.state.eventData.directions);
+    console.log("name", name, this.state.eventData.directions);
     this.setState({
       ...this.state,
       eventData: {
@@ -28,7 +28,7 @@ class CreateEventFormContainer extends React.Component {
   };
   convertTime = time => {
     let milliseconds =
-      (Number(time.split(':')[0]) * 60 * 60 + Number(time.split(':')[1]) * 60) *
+      (Number(time.split(":")[0]) * 60 * 60 + Number(time.split(":")[1]) * 60) *
       1000;
     return milliseconds;
   };
@@ -51,15 +51,15 @@ class CreateEventFormContainer extends React.Component {
     //console.log('epochTime', epochTime);
     const eventEndTime = this.convertTime(endTime);
     let eventDuration = eventEndTime - eventStartTime;
-    console.log('eventDuration', eventDuration);
-    console.log('startTime', startTime);
+    console.log("eventDuration", eventDuration);
+    console.log("startTime", startTime);
     const APIkey = MY_KEY.meetupAPIKey;
     fetch(
       `https://api.meetup.com/2/event?key=${APIkey}&group_id=20411696&group_urlname=Learn-Teach-Code-Seoul&name=${name}&description=${description}&time=${epochTime}&duration=${eventDuration}&venue_id=${venueId}&how_to_find_us=${directions}&publish_status=draft`,
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'content-type': 'application/x-www-form-urlencoded'
+          "content-type": "application/x-www-form-urlencoded"
         }
       }
     )
@@ -67,14 +67,14 @@ class CreateEventFormContainer extends React.Component {
         console.log(res.status);
         return res.json();
       })
-      .catch(err => console.log('error:', err))
+      .catch(err => console.log("error:", err))
       .then(data => {
-        console.log('response data', data);
+        console.log("response data", data);
         this.props.handleToggle();
       });
   };
   render() {
-    console.log('this.state.eventData', this.state.eventData);
+    console.log("this.state.eventData", this.state.eventData);
     return (
       <CreateEventForm
         onChangeHandler={this.onChangeHandler}
