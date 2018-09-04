@@ -104,7 +104,7 @@ class CarouselComponent extends React.Component {
             <ItemLi style={{ fontWeight: 900, fontSize: "40px" }}>
               Topic : {event.name}
             </ItemLi>
-            <ItemLi>{event.venue.name}</ItemLi>
+            {event.venue ? <ItemLi>{event.venue.name}</ItemLi> : null}
           </ItemUl>
         </CarouselItem>
       );
