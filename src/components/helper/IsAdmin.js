@@ -1,6 +1,7 @@
 //renders children if user is logged in
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const getJSON = (route, options = {}) => {
   return fetch(`http://localhost:4002/api/v1.0${route}`, {
@@ -45,6 +46,14 @@ class IsAdmin extends React.Component {
     });
     return childrenWithProps;
   }
+}
+
+IsAdmin.propTypes = {
+  children : PropTypes.element,
+  state : PropTypes.shape({
+    isAuthenticated : PropTypes.bool,
+    user : PropTypes.string
+  })
 }
 
 export default IsAdmin;
