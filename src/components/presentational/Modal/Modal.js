@@ -3,7 +3,7 @@ import {
   ModalBackdrop,
   ModalContent,
   ModalCloseButton
-} from "../../styles/ModalStyle";
+} from "../../../styles/helpers/ModalStyle"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 

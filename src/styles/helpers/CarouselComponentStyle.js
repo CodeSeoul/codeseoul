@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as style from './variable';
+import * as style from '../variable';
 
 const CarouselItem = styled.div`
     flex: 1 0 100%;

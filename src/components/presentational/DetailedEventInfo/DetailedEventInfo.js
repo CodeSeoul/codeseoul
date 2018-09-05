@@ -1,14 +1,19 @@
 import React from "react";
-import { DetailedEventInfoStyle } from "../styles/ShowingEvents";
+import { DetailedEventInfoStyle } from "../../../styles/pages/EventsPage/ShowingEvents";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser} from '@fortawesome/free-solid-svg-icons'
+
 
 const DetailedEventInfo = props => {
   const { name, description, time, local_time, duration } = props.eventInfo;
 
   const members = props.rsvps.map((rsvp, index) => {
+    console.log(rsvp)
     return (
       <div key={index}>
+        
         {rsvp.member.name}
-        <img alt="error" src={rsvp.member.photo.photo_link} />
+        {rsvp.member.photo ? <img alt="error" src={rsvp.member.photo.photo_link}/> : <div><FontAwesomeIcon icon={faUser} size="4x" transform="down-2"/></div>}
       </div>
     );
   });
@@ -23,7 +28,6 @@ const DetailedEventInfo = props => {
           month: "short",
           day: "numeric"
         })}{", "}
-        <t />
         {local_time} ~{" "}
         {new Date(time + duration).toLocaleString("en-GB", {
           hour: "numeric",

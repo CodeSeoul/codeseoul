@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import * as style from "./variable";
+import * as style from "../../variable";
 
 const fadeIn = keyframes`
   from{
@@ -114,6 +114,7 @@ const DetailedEventInfoStyle = styled.div`
     display: block;
     object-fit: cover;
   }
+
 `;
 
 export {
