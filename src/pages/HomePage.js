@@ -2,7 +2,6 @@ import React from 'react';
 import {CarouselComponent} from '../components/containers/CarouselComponent/CarouselComponent';
 import PastEvents from '../components/presentational/PastEvents/PastEvents';
 import { FlexBox } from '../styles/pages/Homepage/HomePageStyle';
-import PropTypes from 'prop-types';
 
 class HomePage extends React.Component{
   state = {
@@ -50,9 +49,5 @@ class HomePage extends React.Component{
     );
   }
 } 
-
-HomePage.propTypes = {
-  pastEvents : PropTypes.bool
-}
 
 export default HomePage;
