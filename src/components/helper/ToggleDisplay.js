@@ -1,5 +1,7 @@
 import React from "react";
 import ShowContentBtn from "../../styles/helpers/ShowContentBtn";
+import PropTypes from 'prop-types';
+
 class ToggleDisplay extends React.Component {
   state = { show: false };
 
@@ -28,6 +30,12 @@ class ToggleDisplay extends React.Component {
     );
     return content;
   }
+}
+
+ToggleDisplay.propTypes = {
+  buttonText : PropTypes.string.isRequired,
+  children : PropTypes.element.isRequired,
+  isAuthenticated : PropTypes.bool
 }
 
 export default ToggleDisplay;
