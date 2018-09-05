@@ -23,7 +23,6 @@ const DetailedEventInfo = props => {
           month: "short",
           day: "numeric"
         })}{", "}
-        <t />
         {local_time} ~{" "}
         {new Date(time + duration).toLocaleString("en-GB", {
           hour: "numeric",
