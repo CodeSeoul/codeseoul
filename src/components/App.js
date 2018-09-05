@@ -1,13 +1,13 @@
-import React from 'react';
-import baseStyles from '../styles/base-styles';
-import { BrowserRouter, Route } from 'react-router-dom';
-import NavMenuContainer from './containers/nav_footer/NavMenuContainer';
-import FooterContainer from './containers/nav_footer/FooterContainer';
-import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
-import ContactPage from '../pages/ContactPage';
-import EventsPage from '../pages/EventsPage';
-import LoginPage from '../pages/LoginPage';
+import React from "react";
+import baseStyles from "../styles/base-styles";
+import { BrowserRouter, Route } from "react-router-dom";
+import NavMenuContainer from "./containers/nav_footer/NavMenuContainer";
+import FooterContainer from "./containers/nav_footer/FooterContainer";
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import ContactPage from "../pages/ContactPage";
+import EventsPage from "../pages/EventsPage";
+import LoginPage from "../pages/LoginPage";
 
 const PrimaryLayout = () => (
   <div className="primary-layout">

@@ -1,5 +1,12 @@
 import React from "react";
 import ContactPageStyle from "../styles/pages/ContactPage/ContactPageStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faMeetup,
+  faTwitter,
+  faKickstarter
+} from "@fortawesome/free-brands-svg-icons";
 
 class ContactPage extends React.Component {
   state = {
@@ -44,6 +51,7 @@ class ContactPage extends React.Component {
     }
   };
   render() {
+    console.log("faFacebook", faFacebook);
     return (
       <ContactPageStyle>
         <header>
@@ -57,10 +65,46 @@ class ContactPage extends React.Component {
 
           <div className="social-media">
             <ul>
-              <li>Facebook</li>
-              <li>Meetup</li>
-              <li>Tweeter</li>
-              <li>Kakao</li>
+              <li>
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  transform="left-2"
+                  size="2x"
+                  color="#3B5998"
+                />
+                Facebook
+              </li>
+
+              <li>
+                {" "}
+                <FontAwesomeIcon
+                  icon={faMeetup}
+                  transform="left-2"
+                  size="2x"
+                  color="red"
+                />
+                Meetup
+              </li>
+              <li>
+                {" "}
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  transform="left-2"
+                  size="2x"
+                  color="#0084b4"
+                />
+                Twitter
+              </li>
+              <li>
+                {" "}
+                <FontAwesomeIcon
+                  icon={faKickstarter}
+                  transform="left-2"
+                  size="2x"
+                  color="#f6ea3d"
+                />
+                Kakao
+              </li>
             </ul>
           </div>
 

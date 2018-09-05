@@ -20,8 +20,8 @@ const ContactPageStyle = styled.div`
 
   header {
     background-color: ${style.PrimaryColor};
-    height: 20vmin;
-    font-size: 7.5vmin;
+    height: 12vmin;
+    font-size: 6.5vmin;
     color: white;
     display: flex;
     align-items: center;
