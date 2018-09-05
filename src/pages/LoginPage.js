@@ -1,6 +1,6 @@
 import React from 'react';
-import { AuthStatus } from '../styles/LoginPageStyle';
-import LoginForm from '../components/presentational/LoginForm';
+import { AuthStatus } from '../styles/pages/LoginPage/LoginPageStyle';
+import LoginForm from '../components/containers/LoginForm/LoginForm'
 import { postJSON, getJSON } from '../lib/util';
 
 class LoginPage extends React.Component {

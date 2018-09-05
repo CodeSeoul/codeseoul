@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginFormContainer, Form, FormInput, Button, Error } from '../../styles/LoginFormStyle';
+import { LoginFormContainer, Form, FormInput, Button, Error } from '../../../styles/LoginFormStyle';
 
 const LoginForm = (props) => {
     const { isAuthenticated, user, formInput, error } = props.states;

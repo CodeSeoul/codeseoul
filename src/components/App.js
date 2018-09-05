@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import NavMenuContainer from "./containers/nav_footer/NavMenuContainer";
 import FooterContainer from "./containers/nav_footer/FooterContainer";
 import HomePage from "../pages/HomePage";
-import AboutPage from "../pages/AboutPage";
+import AboutPage from "../pages/AboutPage"
 import ContactPage from "../pages/ContactPage";
 import EventsPage from "../pages/EventsPage";
 import LoginPage from "../pages/LoginPage";
