@@ -4,13 +4,13 @@ import {
   Events,
   LoadMoreEvents,
   CurrentEventsSection
-} from "../styles/pages/EventsPage/ShowingEvents"
+} from "../styles/pages/EventsPage/ShowingEvents";
 import EventsPageWrapper from "../styles/pages/EventsPage/index";
 import CreateEventFormContainer from "../components/containers/CreateEventFormContainer";
 import ToggleDisplay from "../components/helper/ToggleDisplay";
 import IsAdmin from "../components/helper/IsAdmin";
-import DetailedEventInfo from "../components/presentational/DetailedEventInfo/DetailedEventInfo"
-import Modal from "../components/presentational/Modal/Modal"
+import DetailedEventInfo from "../components/presentational/DetailedEventInfo/DetailedEventInfo";
+import Modal from "../components/presentational/Modal/Modal";
 
 class EventsPage extends React.Component {
   state = {
