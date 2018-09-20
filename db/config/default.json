@@ -1,0 +1,7 @@
+{
+    "MONGO_URI":"mongodb://localhost:27017/realDB",
+    "PORT":"4000",
+    "HASH_SECRET_KEY":"This key should be never used. Change it when you deploy.",
+    "MEETUPKEY":"<your meetup key>",
+    "ENV":"production"
+}
