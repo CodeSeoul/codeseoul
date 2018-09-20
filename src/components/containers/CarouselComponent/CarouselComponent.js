@@ -6,12 +6,13 @@ import {
   ItemUl,
   ItemLi,
   SlideButton
-} from "../styles/CarouselComponentStyle";
+} from "../../../styles/helpers/CarouselComponentStyle"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import Modal from "./Modal/Modal";
-import DetailedEventInfo from "./DetailedEventInfo";
+import Modal from "../../presentational/Modal/Modal";
+import DetailedEventInfo from "../../presentational/DetailedEventInfo/DetailedEventInfo"
+import PropTypes from 'prop-types';
 
 const sliderSettings = {
   dots: true,
@@ -136,6 +137,10 @@ class CarouselComponent extends React.Component {
       </div>
     );
   };
+}
+
+CarouselComponent.propTypes = {
+  events : PropTypes.array.isRequired
 }
 
 export { CarouselComponent };

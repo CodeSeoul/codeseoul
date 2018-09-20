@@ -3,9 +3,10 @@ import {
   ModalBackdrop,
   ModalContent,
   ModalCloseButton
-} from "../../styles/ModalStyle";
+} from "../../../styles/helpers/ModalStyle"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
@@ -27,6 +28,10 @@ class Modal extends React.Component {
       );
     }
   }
+}
+
+Modal.propTypes = {
+  show : PropTypes.bool.isRequired
 }
 
 export default Modal;

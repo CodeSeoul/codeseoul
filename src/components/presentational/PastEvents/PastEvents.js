@@ -1,5 +1,6 @@
 import React from 'react';
-import { Events } from '../../styles/ShowingEvents';
+import { Events } from '../../../styles/pages/EventsPage/ShowingEvents'
+import PropTypes from 'prop-types';
 
 const PastEvents = ({events}) => {
   const eventsUI = events.map((event, i)=>{
@@ -21,6 +22,10 @@ const PastEvents = ({events}) => {
       {eventsUI}
     </div>
   );
+}
+
+PastEvents.propTypes = {
+  events : PropTypes.array
 }
 
 export default PastEvents;

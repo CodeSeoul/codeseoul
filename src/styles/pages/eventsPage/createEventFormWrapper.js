@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PrimaryColorLight, ThirdColor, PrimaryFont } from '../variable';
+import { PrimaryColorLight, ThirdColor, PrimaryFont } from '../../variable';
 
 let CreateEventFormWrapper = styled.div`
   width: 80%;

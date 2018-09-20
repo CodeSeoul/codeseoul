@@ -1,7 +1,7 @@
 import React from 'react';
-import {CarouselComponent} from '../components/CarouselComponent';
-import PastEvents from '../components/presentational/PastEvents';
-import { FlexBox } from '../styles/HomePageStyle';
+import {CarouselComponent} from '../components/containers/CarouselComponent/CarouselComponent';
+import PastEvents from '../components/presentational/PastEvents/PastEvents';
+import { FlexBox } from '../styles/pages/Homepage/HomePageStyle';
 
 class HomePage extends React.Component{
   state = {
