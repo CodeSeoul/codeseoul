@@ -4,8 +4,8 @@ import {
   Events,
   LoadMoreEvents,
   CurrentEventsSection
-} from "../styles/pages/EventsPage/ShowingEvents";
-import EventsPageWrapper from "../styles/pages/EventsPage/index";
+} from "../styles/pages/eventsPage/ShowingEvents";
+import EventsPageWrapper from "../styles/pages/eventsPage/index";
 import CreateEventFormContainer from "../components/containers/CreateEventFormContainer";
 import ToggleDisplay from "../components/helper/ToggleDisplay";
 import IsAdmin from "../components/helper/IsAdmin";

@@ -1,6 +1,6 @@
 import React from "react";
-import CreateEventFormWrapper from "../../../styles/pages/EventsPage/createEventFormWrapper";
-import PropTypes from 'prop-types';
+import CreateEventFormWrapper from "../../../styles/pages/eventsPage/createEventFormWrapper";
+import PropTypes from "prop-types";
 
 const CreateEventForm = props => {
   const { onChangeHandler, createEvent, event, closeForm } = props;
@@ -88,15 +88,15 @@ const CreateEventForm = props => {
 };
 
 CreateEventForm.propTypes = {
-  onChangeHandler : PropTypes.func.isRequired,
-  createEvent : PropTypes.func.isRequired,
-  event : PropTypes.shape({
-    name : PropTypes.string.isRequired,
-    description : PropTypes.string.isRequired,
-    directions : PropTypes.string.isRequired,
-    startTime : PropTypes.number.isRequired,
-    endTime : PropTypes.number.isRequired
+  onChangeHandler: PropTypes.func.isRequired,
+  createEvent: PropTypes.func.isRequired,
+  event: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    directions: PropTypes.string.isRequired,
+    startTime: PropTypes.number.isRequired,
+    endTime: PropTypes.number.isRequired
   })
-}
+};
 
 export default CreateEventForm;
